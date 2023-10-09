@@ -1,10 +1,9 @@
 import { FC } from 'react'
 
-type SampleProps = {
-  user: {
-    name: string
-  }
+import styles from '@/components/Sample.module.scss'
+
+const Sample: FC = () => {
+  return <div className={styles.sample}>Sample</div>
 }
-export const Sample: FC<SampleProps> = ({ user }) => {
-  return <div>{user.name}</div>
-}
+
+export default Sample
