@@ -1,10 +1,7 @@
+import 'the-new-css-reset/css/reset.css'
 import './globals.scss'
 
-import { Inter } from 'next/font/google'
-
 import type { Metadata } from 'next'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body>{children}</body>
     </html>
   )
 }
