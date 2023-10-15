@@ -1,6 +1,13 @@
 const { withKumaUI } = require('@kuma-ui/next-plugin')
 
 /** @type {import('next').NextConfig} */
-const nextConfig = { reactStrictMode: true }
+// Next.js v13.5.4 のバグがありそうなのでコメントアウト
+// const nextConfig = {
+//   reactStrictMode: true,
+//   output: 'export',
+// }
+const nextConfig = {
+  reactStrictMode: true,
+}
 
 module.exports = withKumaUI(nextConfig)

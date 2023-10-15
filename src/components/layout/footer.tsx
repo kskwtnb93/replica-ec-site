@@ -13,9 +13,10 @@ export default function Footer() {
       <p
         className={css`
           font-size: 1rem;
+          color: #a0a0a0;
         `}
       >
-        Footer
+        Copyright text
       </p>
     </footer>
   )
