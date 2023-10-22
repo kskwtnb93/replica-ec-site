@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import type { RootState } from '@/redux/store'
+
 const initialState = {
   gender: 'all',
 }
@@ -16,7 +18,6 @@ export const genderSlice = createSlice({
 
 export const { switchGender } = genderSlice.actions
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
-export const selectGender = (state) => state.gender
+export const selectGender = (state: RootState) => state.gender
 
 export default genderSlice.reducer

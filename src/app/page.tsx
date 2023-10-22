@@ -2,7 +2,7 @@ import { css } from '@kuma-ui/core'
 import GenderTabs from '@/components/home/gender-tabs'
 import Container from '@/components/layout/container'
 
-export default async function Page() {
+export default function Page() {
   return (
     <>
       <Container>

@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { selectGender, switchGender } from '@/redux/slices/gender'
 
-export default function GenderTab({ id, color, en_name }) {
+import type { Categories1 } from '@/types/categories'
+
+export default function GenderTab({ id, color, en_name }: Categories1) {
   const dispatch = useDispatch()
   const { gender } = useSelector(selectGender)
 
