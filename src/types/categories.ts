@@ -2,6 +2,7 @@ export interface Categories1 {
   id: string
   en_name: string
   ja_name: string
+  color: string
 }
 
 export interface Categories2 {

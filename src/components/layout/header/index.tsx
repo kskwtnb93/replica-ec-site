@@ -1,4 +1,5 @@
 import { css } from '@kuma-ui/core'
+import HeaderLogo from '@/components/layout/header/header-logo'
 
 export default function Header() {
   return (
@@ -15,19 +16,7 @@ export default function Header() {
           padding: 1rem 2rem;
         `}
       >
-        <p
-          className={css`
-            order: 2;
-            font-size: 2rem;
-            font-weight: bold;
-
-            @media (max-width: 980px) {
-              font-size: 1.6rem;
-            }
-          `}
-        >
-          MOMOTOWN
-        </p>
+        <HeaderLogo />
         <nav
           className={css`
             order: 1;

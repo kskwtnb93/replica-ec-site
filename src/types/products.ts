@@ -13,7 +13,7 @@ export interface ProductContents {
   revisedAt?: string
   brand_name?: string
   name?: string
-  sex?: string[]
+  gender?: string[]
   category1?: string
   category2?: string
   main_image?: Image
