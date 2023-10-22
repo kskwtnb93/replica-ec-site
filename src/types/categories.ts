@@ -1,16 +1,16 @@
-export interface Categories1 {
+export interface FirstCategory {
   id: string
   en_name: string
   ja_name: string
   color: string
 }
 
-export interface Categories2 {
+export interface SecondCategory {
   id: string
   name: string
 }
 
-export interface Categories3 {
+export interface ThirdCategory {
   id: string
   parent_id: string
   name: string
