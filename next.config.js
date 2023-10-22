@@ -8,6 +8,7 @@ const { withKumaUI } = require('@kuma-ui/next-plugin')
 // }
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: true,
 }
 
 module.exports = withKumaUI(nextConfig)
