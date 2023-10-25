@@ -1,13 +1,14 @@
 import { css } from '@kuma-ui/core'
 import Tab from '@/components/home/gender-tabs/tab'
 import ReduxProvider from '@/components/redux-provider'
-import { getFirstCategories } from '@/utils/categories'
 
 import type { FirstCategory } from '@/types/categories'
 
-export default async function GenderTabs() {
-  const categories: FirstCategory[] = await getFirstCategories('no-store')
+type Props = {
+  categories: FirstCategory[]
+}
 
+export default async function GenderTabs({ categories }: Props) {
   return (
     <div
       className={css`

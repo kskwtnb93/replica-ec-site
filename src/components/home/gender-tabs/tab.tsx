@@ -23,7 +23,6 @@ export default function GenderTab({ id, color, en_name }: FirstCategory) {
               padding: 1rem;
               font-weight: bold;
               border-radius: 0.8rem;
-              cursor: pointer;
               background-color: rgba(45, 45, 45, 7%);
             `
           : css`
@@ -34,16 +33,17 @@ export default function GenderTab({ id, color, en_name }: FirstCategory) {
               font-weight: bold;
               border-radius: 0.8rem;
               cursor: pointer;
-              transition: background-color ease-in 0.15s;
+              transition: all ease-in 0.15s;
 
               &:hover {
-                background-color: rgba(45, 45, 45, 7%);
+                opacity: 0.6;
+                // background-color: rgba(45, 45, 45, 7%);
               }
             `
       }
     >
       <Text as="span" color={color}>
-        {gender === id ? en_name + ' (active)' : en_name}
+        {en_name}
       </Text>
     </button>
   )

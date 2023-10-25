@@ -1,12 +1,17 @@
 import { css } from '@kuma-ui/core'
 import GenderTabs from '@/components/home/gender-tabs'
 import Container from '@/components/layout/container'
+import { getFirstCategories } from '@/utils/categories'
 
-export default function Page() {
+import type { FirstCategory } from '@/types/categories'
+
+export default async function Page() {
+  const firstCategories: FirstCategory[] = await getFirstCategories('no-store')
+
   return (
     <>
       <Container>
-        <GenderTabs />
+        <GenderTabs categories={firstCategories} />
       </Container>
 
       <div
