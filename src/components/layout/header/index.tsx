@@ -1,5 +1,5 @@
 import { css } from '@kuma-ui/core'
-import HeaderLogo from '@/components/layout/header/header-logo'
+import Logo from '@/components/layout/header/logo'
 
 export default function Header() {
   return (
@@ -16,7 +16,7 @@ export default function Header() {
           padding: 1rem 2rem;
         `}
       >
-        <HeaderLogo />
+        <Logo />
         <nav
           className={css`
             order: 1;
