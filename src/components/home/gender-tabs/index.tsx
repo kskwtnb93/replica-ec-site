@@ -2,7 +2,7 @@ import { Box, Flex } from '@kuma-ui/core'
 import Tab from '@/components/home/gender-tabs/tab'
 import ReduxProvider from '@/components/redux-provider'
 
-import type { FirstCategoryType } from '@/types/categories'
+import type { FirstCategoryType } from '@/types/category'
 
 type Props = {
   categories: FirstCategoryType[]

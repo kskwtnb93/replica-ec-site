@@ -2,20 +2,19 @@ import type {
   FirstCategoryType,
   SecondCategoryType,
   ThirdCategoryType,
-} from '@/types/categories'
+} from '@/types/category'
 
 /**
  * all, men, women
  * などの１階層目（性別）のカテゴリー一覧を取得する
  */
-export async function getFirstCategories(
+export async function fetchFirstCategories(
   cache: 'force-cache' | 'no-store'
 ): Promise<FirstCategoryType[]> {
   const endPoint =
     process.env.PUBLIC_NEXT_URL + '/api/categories/first-categories'
   const cacheValue = cache || ''
   const options = { method: 'GET', cache: cacheValue }
-
   const data: FirstCategoryType[] = await fetch(endPoint, options).then((res) =>
     res.json()
   )
@@ -27,14 +26,13 @@ export async function getFirstCategories(
  * tops, jacket-outerwear, pants
  * などの２階層目のカテゴリー一覧を取得する
  */
-export async function getSecondCategories(
+export async function fetchSecondCategories(
   cache: 'force-cache' | 'no-store'
 ): Promise<SecondCategoryType[]> {
   const endPoint =
     process.env.PUBLIC_NEXT_URL + '/api/categories/second-categories'
   const cacheValue = cache || ''
   const options = { method: 'GET', cache: cacheValue }
-
   const data: SecondCategoryType[] = await fetch(endPoint, options).then(
     (res) => res.json()
   )
@@ -46,7 +44,7 @@ export async function getSecondCategories(
  * tshirt-cutsew, denim-pants, trench-coat, etc...
  * などの３階層目のカテゴリー一覧を取得する
  */
-export async function getThirdCategories(
+export async function fetchThirdCategories(
   parentId: string,
   cache: 'force-cache' | 'no-store'
 ): Promise<ThirdCategoryType[]> {
@@ -54,7 +52,6 @@ export async function getThirdCategories(
     process.env.PUBLIC_NEXT_URL + '/api/categories/third-categories/' + parentId
   const cacheValue = cache || ''
   const options = { method: 'GET', cache: cacheValue }
-
   const data: ThirdCategoryType[] = await fetch(endPoint, options).then((res) =>
     res.json()
   )

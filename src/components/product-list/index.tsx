@@ -1,7 +1,7 @@
 import { css } from '@kuma-ui/core'
 import Card from '@/components/product-list/card'
 
-import type { ProductContentsType } from '@/types/products'
+import type { ProductContentsType } from '@/types/product'
 
 type Props = {
   products: ProductContentsType[]

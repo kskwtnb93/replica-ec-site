@@ -6,16 +6,16 @@ import TwoColumn from '@/components/columns/two-column'
 import Container from '@/components/layout/container'
 import ProductList from '@/components/product-list'
 import {
+  fetchFirstCategories,
+  fetchSecondCategories,
   getCategory,
-  getFirstCategories,
-  getSecondCategories,
-} from '@/utils/categories'
-import { getProducts } from '@/utils/products'
+} from '@/utils/category'
+import { getProducts } from '@/utils/product'
 
 import type { BreadcrumbType } from '@/types'
-import type { FirstCategoryType, SecondCategoryType } from '@/types/categories'
+import type { FirstCategoryType, SecondCategoryType } from '@/types/category'
 
-import type { ProductContentsType } from '@/types/products'
+import type { ProductContentsType } from '@/types/product'
 
 type PageProps = {
   params: {
@@ -26,9 +26,9 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const firstCategories: FirstCategoryType[] =
-    await getFirstCategories('no-store')
+    await fetchFirstCategories('no-store')
   const secondCategories: SecondCategoryType[] =
-    await getSecondCategories('no-store')
+    await fetchSecondCategories('no-store')
 
   const firstCategory: FirstCategoryType | undefined = await getCategory(
     params.firstCategoryId,

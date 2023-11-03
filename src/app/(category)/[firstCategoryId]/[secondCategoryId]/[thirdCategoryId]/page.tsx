@@ -6,21 +6,21 @@ import TwoColumn from '@/components/columns/two-column'
 import Container from '@/components/layout/container'
 import ProductList from '@/components/product-list'
 import {
+  fetchFirstCategories,
+  fetchSecondCategories,
+  fetchThirdCategories,
   getCategory,
-  getFirstCategories,
-  getSecondCategories,
-  getThirdCategories,
-} from '@/utils/categories'
-import { getProducts } from '@/utils/products'
+} from '@/utils/category'
+import { getProducts } from '@/utils/product'
 
 import type { BreadcrumbType } from '@/types'
 import type {
   FirstCategoryType,
   SecondCategoryType,
   ThirdCategoryType,
-} from '@/types/categories'
+} from '@/types/category'
 
-import type { ProductContentsType } from '@/types/products'
+import type { ProductContentsType } from '@/types/product'
 type PageProps = {
   params: {
     firstCategoryId: string
@@ -31,13 +31,13 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const firstCategories: FirstCategoryType[] =
-    await getFirstCategories('no-store')
+    await fetchFirstCategories('no-store')
   const firstCategory: FirstCategoryType | undefined = await getCategory(
     params.firstCategoryId,
     firstCategories
   )
   const secondCategories: SecondCategoryType[] =
-    await getSecondCategories('no-store')
+    await fetchSecondCategories('no-store')
   const secondCategory: SecondCategoryType | undefined = await getCategory(
     params.secondCategoryId,
     secondCategories
@@ -45,7 +45,7 @@ export default async function Page({ params }: PageProps) {
 
   if (!firstCategory || !secondCategory) return notFound()
 
-  const thirdCategories: ThirdCategoryType[] = await getThirdCategories(
+  const thirdCategories: ThirdCategoryType[] = await fetchThirdCategories(
     params.secondCategoryId,
     'no-store'
   )

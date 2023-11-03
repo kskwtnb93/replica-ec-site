@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { TAX_RATE } from '@/utils/constants'
 
-import type { ProductContentsType } from '@/types/products'
+import type { ProductContentsType } from '@/types/product'
 
 type Props = {
   product: ProductContentsType

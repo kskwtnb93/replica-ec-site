@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
 
 import Container from '@/components/layout/container'
-import { getCategory, getFirstCategories } from '@/utils/categories'
+import { fetchFirstCategories, getCategory } from '@/utils/category'
 
-import type { FirstCategoryType } from '@/types/categories'
+import type { FirstCategoryType } from '@/types/category'
 
 type PageProps = {
   params: {
@@ -13,7 +13,7 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const firstCategories: FirstCategoryType[] =
-    await getFirstCategories('no-store')
+    await fetchFirstCategories('no-store')
   const firstCategory: FirstCategoryType | undefined = await getCategory(
     params.firstCategoryId,
     firstCategories

@@ -1,4 +1,4 @@
-import type { ProductContentsType, ProductsType } from '@/types/products'
+import type { ProductContentsType, ProductsType } from '@/types/product'
 
 export async function getProducts(
   limit: number = 100,
