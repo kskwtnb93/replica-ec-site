@@ -1,4 +1,5 @@
 import { css } from '@kuma-ui/core'
+import Container from '@/components/layout/container'
 import Logo from '@/components/layout/header/logo'
 
 export default function Header() {
@@ -34,24 +35,26 @@ export default function Header() {
           Cart
         </p>
       </div>
-      <div
-        className={css`
-          padding: 0 2rem 1.5rem 2rem;
-        `}
-      >
-        <p
+      <Container>
+        <div
           className={css`
-            background-color: #fff;
-            padding: 1rem;
-            border-radius: 0.4rem;
-            color: rgb(200, 200, 200);
-            font-weight: bold;
-            font-size: 1.2rem;
+            padding: 0 0 2rem;
           `}
         >
-          Search Area
-        </p>
-      </div>
+          <p
+            className={css`
+              background-color: #fff;
+              padding: 1rem;
+              border-radius: 0.4rem;
+              color: rgb(200, 200, 200);
+              font-weight: bold;
+              font-size: 1.2rem;
+            `}
+          >
+            Search Area
+          </p>
+        </div>
+      </Container>
     </header>
   )
 }

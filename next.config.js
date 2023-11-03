@@ -9,6 +9,9 @@ const { withKumaUI } = require('@kuma-ui/next-plugin')
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
+  images: {
+    domains: ['images.microcms-assets.io'],
+  },
 }
 
 module.exports = withKumaUI(nextConfig)

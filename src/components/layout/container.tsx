@@ -4,7 +4,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={css`
-        max-width: 980px;
+        width: 1020px;
         margin: 0 auto;
         padding: 0 2rem;
 

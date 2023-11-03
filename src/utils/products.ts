@@ -1,10 +1,10 @@
-import type { ProductContents, Products } from '@/types/products'
+import type { ProductContentsType, ProductsType } from '@/types/products'
 
 export async function getProducts(
   limit: number = 100,
   offset: number = 0,
   fields: string[] | never[] = []
-): Promise<ProductContents[]> {
+): Promise<ProductContentsType[]> {
   const fieldsText = fields.length ? fields.join(',') : ''
   let endPoint =
     process.env.PRODUCTS_API_URL + `products?limit=${limit}&offset=${offset}`
@@ -20,7 +20,7 @@ export async function getProducts(
   const headers = new Headers()
   headers.append('X-MICROCMS-API-KEY', process.env.PRODUCTS_API_KEY || '')
 
-  const data: Products = await fetch(endPoint, { headers }).then((res) =>
+  const data: ProductsType = await fetch(endPoint, { headers }).then((res) =>
     res.json()
   )
 

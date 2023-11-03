@@ -3,10 +3,11 @@ import GenderTabs from '@/components/home/gender-tabs'
 import Container from '@/components/layout/container'
 import { getFirstCategories } from '@/utils/categories'
 
-import type { FirstCategory } from '@/types/categories'
+import type { FirstCategoryType } from '@/types/categories'
 
 export default async function Page() {
-  const firstCategories: FirstCategory[] = await getFirstCategories('no-store')
+  const firstCategories: FirstCategoryType[] =
+    await getFirstCategories('no-store')
 
   return (
     <>

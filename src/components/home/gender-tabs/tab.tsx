@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { selectGender, switchGender } from '@/redux/slices/gender'
 
-import type { FirstCategory } from '@/types/categories'
+import type { FirstCategoryType } from '@/types/categories'
 
-export default function GenderTab({ id, color, en_name }: FirstCategory) {
+export default function GenderTab({ id, color, en_name }: FirstCategoryType) {
   const dispatch = useDispatch()
   const { gender } = useSelector(selectGender)
 
@@ -37,7 +37,6 @@ export default function GenderTab({ id, color, en_name }: FirstCategory) {
 
               &:hover {
                 opacity: 0.6;
-                // background-color: rgba(45, 45, 45, 7%);
               }
             `
       }
