@@ -1,6 +1,6 @@
 import { css } from '@kuma-ui/core'
 import GenderTabs from '@/components/home/gender-tabs'
-import Container from '@/components/layout/container'
+import Container from '@/components/layouts/container'
 import { fetchFirstCategories } from '@/utils/category'
 
 import type { FirstCategoryType } from '@/types/category'

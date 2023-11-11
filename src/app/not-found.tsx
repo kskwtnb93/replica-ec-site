@@ -1,4 +1,4 @@
-import Container from '@/components/layout/container'
+import Container from '@/components/layouts/container'
 import NotFoundContents from '@/components/not-found-contents'
 
 export default function NotFound() {

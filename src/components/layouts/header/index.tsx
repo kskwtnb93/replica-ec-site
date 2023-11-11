@@ -1,6 +1,6 @@
 import { css } from '@kuma-ui/core'
-import Container from '@/components/layout/container'
-import Logo from '@/components/layout/header/logo'
+import Container from '@/components/layouts/container'
+import Logo from '@/components/layouts/header/logo'
 
 export default function Header() {
   return (

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import Container from '@/components/layout/container'
+import Container from '@/components/layouts/container'
 import { fetchFirstCategories, getCategory } from '@/utils/category'
 
 import type { FirstCategoryType } from '@/types/category'

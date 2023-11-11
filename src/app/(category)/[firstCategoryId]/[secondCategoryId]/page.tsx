@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import Breadcrumb from '@/components/breadcrumb'
 import TwoColumn from '@/components/columns/two-column'
-import Container from '@/components/layout/container'
+import Container from '@/components/layouts/container'
 import ProductList from '@/components/product-list'
 import {
   fetchFirstCategories,
