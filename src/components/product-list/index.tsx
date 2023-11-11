@@ -7,8 +7,8 @@ type Props = {
   products: ProductContentsType[]
 }
 
-export default async function ProductList({ products }: Props) {
-  return (
+export default function ProductList({ products }: Props) {
+  return products.length ? (
     <ul
       className={css`
         display: grid;
@@ -24,5 +24,15 @@ export default async function ProductList({ products }: Props) {
         />
       ))}
     </ul>
+  ) : (
+    <p
+      className={css`
+        font-size: 1.5rem;
+        color: #ed293e;
+        line-height: 1.6;
+      `}
+    >
+      条件に一致する商品は見つかりませんでした。
+    </p>
   )
 }

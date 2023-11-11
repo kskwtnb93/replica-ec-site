@@ -1,7 +1,9 @@
-import { Box, css } from '@kuma-ui/core'
+import { Box } from '@kuma-ui/core'
 import { notFound } from 'next/navigation'
 
 import Breadcrumb from '@/components/breadcrumb'
+import Heading from '@/components/category/heading'
+import CategorySidebar from '@/components/category-sidebar'
 import TwoColumn from '@/components/columns/two-column'
 import Container from '@/components/layouts/container'
 import ProductList from '@/components/product-list'
@@ -21,6 +23,7 @@ import type {
 } from '@/types/category'
 
 import type { ProductContentsType } from '@/types/product'
+
 type PageProps = {
   params: {
     firstCategoryId: string
@@ -104,17 +107,27 @@ export default async function Page({ params }: PageProps) {
       </Box>
       <Box pb="8rem">
         <TwoColumn
-          main={<ProductList products={filteredProducts} />}
+          main={
+            <>
+              <Heading
+                as="h1"
+                text={
+                  firstCategory.id !== 'all'
+                    ? `${thirdCategory.name}（${firstCategory.ja_name}）`
+                    : `${thirdCategory.name}`
+                }
+              />
+              <ProductList products={filteredProducts} />
+            </>
+          }
           sidebar={
-            <aside
-              className={css`
-                width: 180px;
-                height: 100vh;
-                background-color: #efefef;
-              `}
-            >
-              サイドバー
-            </aside>
+            <CategorySidebar
+              productCount={filteredProducts.length}
+              firstCategories={firstCategories}
+              secondCategories={secondCategories}
+              thirdCategories={thirdCategories}
+              params={params}
+            />
           }
         />
       </Box>
