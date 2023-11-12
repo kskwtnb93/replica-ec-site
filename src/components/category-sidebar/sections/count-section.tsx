@@ -1,4 +1,7 @@
+'use client'
+
 import { css } from '@kuma-ui/core'
+import Countup from 'react-countup'
 
 type Props = {
   productCount: number
@@ -8,10 +11,22 @@ export default function GenderSection({ productCount }: Props) {
   return (
     <section
       className={css`
+        position: relative;
         padding: 1.5rem 1.5rem 1rem;
         background-color: #c1c1c1;
         color: #fff;
         border-radius: 0.4rem 0.4rem 0 0;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 1.8rem;
+          right: -1.1rem;
+          border-top: 0.8rem solid transparent;
+          border-bottom: 0.8rem solid transparent;
+          border-left: 1.1rem solid #c1c1c1;
+        }
       `}
     >
       <h2
@@ -38,7 +53,10 @@ export default function GenderSection({ productCount }: Props) {
             margin-bottom: 0.5rem;
           `}
         >
-          {productCount}
+          <Countup end={productCount} duration={3} />
+          <noscript>
+            <span>{productCount}</span>
+          </noscript>
         </span>
         <span
           className={css`
