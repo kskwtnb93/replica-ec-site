@@ -33,12 +33,13 @@ export default async function RootLayout({
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #f8f8f8;
           `}
         >
           <Header />
           <main
             className={css`
+              display: flex;
+              flex-direction: column;
               flex: 1;
               overflow-x: hidden;
             `}

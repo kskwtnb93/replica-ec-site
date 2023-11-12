@@ -13,7 +13,7 @@ export async function fetchFirstCategories(
 ): Promise<FirstCategoryType[]> {
   const endPoint =
     process.env.PUBLIC_NEXT_URL + '/api/categories/first-categories'
-  const cacheValue = cache || ''
+  const cacheValue = cache || 'no-store'
   const options = { method: 'GET', cache: cacheValue }
   const data: FirstCategoryType[] = await fetch(endPoint, options).then((res) =>
     res.json()
@@ -31,7 +31,7 @@ export async function fetchSecondCategories(
 ): Promise<SecondCategoryType[]> {
   const endPoint =
     process.env.PUBLIC_NEXT_URL + '/api/categories/second-categories'
-  const cacheValue = cache || ''
+  const cacheValue = cache || 'no-store'
   const options = { method: 'GET', cache: cacheValue }
   const data: SecondCategoryType[] = await fetch(endPoint, options).then(
     (res) => res.json()
@@ -50,11 +50,38 @@ export async function fetchThirdCategories(
 ): Promise<ThirdCategoryType[]> {
   const endPoint =
     process.env.PUBLIC_NEXT_URL + '/api/categories/third-categories/' + parentId
-  const cacheValue = cache || ''
+  const cacheValue = cache || 'no-store'
   const options = { method: 'GET', cache: cacheValue }
   const data: ThirdCategoryType[] = await fetch(endPoint, options).then((res) =>
     res.json()
   )
+
+  return data
+}
+
+/**
+ *
+ */
+export async function fetchThirdCategoriesAll(
+  cache: 'force-cache' | 'no-store'
+): Promise<ThirdCategoryType[]> {
+  let data: ThirdCategoryType[] = []
+  const secondCategories: SecondCategoryType[] =
+    await fetchSecondCategories('no-store')
+  const cacheValue = cache || 'no-store'
+  const options = { method: 'GET', cache: cacheValue }
+
+  for (const secondCategory of secondCategories) {
+    const endPoint =
+      process.env.PUBLIC_NEXT_URL +
+      '/api/categories/third-categories/' +
+      secondCategory.id
+    const thirdCategories: ThirdCategoryType[] = await fetch(
+      endPoint,
+      options
+    ).then((res) => res.json())
+    data = data.concat(thirdCategories)
+  }
 
   return data
 }

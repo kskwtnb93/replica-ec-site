@@ -6,7 +6,7 @@ export default function Footer() {
     <footer
       className={css`
         background-color: #efefef;
-        padding: 1.2rem 0;
+        padding: 3.5rem 0 5.5rem;
       `}
     >
       <Container>

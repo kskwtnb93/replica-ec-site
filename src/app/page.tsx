@@ -10,7 +10,12 @@ export default async function Page() {
     await fetchFirstCategories('no-store')
 
   return (
-    <>
+    <div
+      className={css`
+        flex: 1;
+        // background-color: #f8f8f8;
+      `}
+    >
       <Container>
         <GenderTabs categories={firstCategories} />
       </Container>
@@ -63,6 +68,6 @@ export default async function Page() {
           </div>
         </div>
       </Container>
-    </>
+    </div>
   )
 }
