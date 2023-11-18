@@ -1,19 +1,10 @@
-'use client'
-
 import { css } from '@kuma-ui/core'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function HeaderLogo() {
-  // const router = useRouter()
   const pathname = usePathname()
-  // const searchParams = useSearchParams()
   const isHome = pathname === '/'
-
-  // console.log('useRouter', router)
-  // console.log('usePathname', pathname)
-  // console.log('useSearchParams', searchParams)
-  // console.log('isHome', isHome)
 
   return (
     <p
@@ -27,7 +18,17 @@ export default function HeaderLogo() {
         }
       `}
     >
-      {!isHome ? <Link href="/">MOMOTOWN</Link> : 'MOMOTOWN'}
+      {!isHome ? (
+        <Link href="/">MOMOTOWN</Link>
+      ) : (
+        <span
+          className={css`
+            user-select: none;
+          `}
+        >
+          MOMOTOWN
+        </span>
+      )}
     </p>
   )
 }

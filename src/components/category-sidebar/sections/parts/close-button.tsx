@@ -3,7 +3,7 @@
 import { css } from '@kuma-ui/core'
 import { useRouter } from 'next/navigation'
 
-import { IconX } from '@/components/icons'
+import { IconClose } from '@/components/icons'
 
 type Props = {
   closeHandlerArg: string
@@ -32,7 +32,7 @@ export default function CloseButton({ closeHandlerArg }: Props) {
         cursor: pointer;
       `}
     >
-      <IconX width="1.6rem" height="1.6rem" color="#ffffff" />
+      <IconClose width="1.6rem" height="1.6rem" color="#ffffff" />
     </button>
   )
 }
