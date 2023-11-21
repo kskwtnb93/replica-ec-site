@@ -33,6 +33,7 @@ export default async function RootLayout({
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
           `}
         >
           <Header />
@@ -41,7 +42,6 @@ export default async function RootLayout({
               display: flex;
               flex-direction: column;
               flex: 1;
-              overflow-x: hidden;
             `}
           >
             {children}

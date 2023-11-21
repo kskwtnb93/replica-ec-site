@@ -1,5 +1,5 @@
 import { Box, Flex } from '@kuma-ui/core'
-import Tab from '@/components/home/gender-tabs/tab'
+import Tab from '@/components/home/home-gender-tabs/tab'
 import ReduxProvider from '@/components/redux-provider'
 
 import type { FirstCategoryType } from '@/types/category'
@@ -8,7 +8,7 @@ type Props = {
   categories: FirstCategoryType[]
 }
 
-export default function GenderTabs({ categories }: Props) {
+export default function HomeGenderTabs({ categories }: Props) {
   return (
     <ReduxProvider>
       <Box p="1rem 0">

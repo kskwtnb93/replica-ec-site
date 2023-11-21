@@ -1,23 +1,32 @@
-import { css } from '@kuma-ui/core'
-import GenderTabs from '@/components/home/gender-tabs'
+import { Box, css } from '@kuma-ui/core'
+import TwoColumn from '@/components/columns/two-column'
+import HomeGenderTabs from '@/components/home/home-gender-tabs'
+import HomeSidebar from '@/components/home/home-sidebar'
 import Container from '@/components/layouts/container'
-import { fetchFirstCategories } from '@/utils/category'
+import {
+  fetchFirstCategories,
+  fetchSecondCategories,
+  fetchThirdCategoriesAll,
+} from '@/utils/category'
 
 import type { FirstCategoryType } from '@/types/category'
 
 export default async function Page() {
   const firstCategories: FirstCategoryType[] =
     await fetchFirstCategories('no-store')
+  const secondCategories: SecondCategoryType[] =
+    await fetchSecondCategories('no-store')
+  const thirdCategories: ThirdCategoryType[] =
+    await fetchThirdCategoriesAll('no-store')
 
   return (
     <div
       className={css`
         flex: 1;
-        // background-color: #f8f8f8;
       `}
     >
       <Container>
-        <GenderTabs categories={firstCategories} />
+        <HomeGenderTabs categories={firstCategories} />
       </Container>
 
       <div
@@ -43,31 +52,36 @@ export default async function Page() {
         </div>
       </div>
 
-      <Container>
-        <div
-          className={css`
-            padding: 2rem 0;
-          `}
-        >
-          <p>アイテムランキング</p>
-          <div>
-            <div>アイテムカードUIスライダー</div>
-          </div>
-        </div>
-
-        <div
-          className={css`
-            padding: 2rem 0;
-          `}
-        >
-          <p>アイテムを探す</p>
-          <div>
-            <div>トップス</div>
-            <div>ジャケット／アウター</div>
-            <div>パンツ</div>
-          </div>
-        </div>
-      </Container>
+      <div
+        className={css`
+          background-color: #f8f8f8;
+        `}
+      >
+        <Container>
+          <Box p="4rem 0 6rem">
+            <TwoColumn
+              main={
+                <>
+                  <div
+                    className={css`
+                      min-height: 100vh;
+                    `}
+                  >
+                    main
+                  </div>
+                </>
+              }
+              sidebar={
+                <HomeSidebar
+                  firstCategories={firstCategories}
+                  secondCategories={secondCategories}
+                  thirdCategories={thirdCategories}
+                />
+              }
+            />
+          </Box>
+        </Container>
+      </div>
     </div>
   )
 }
