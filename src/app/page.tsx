@@ -1,14 +1,17 @@
 import { Box, css } from '@kuma-ui/core'
 import TwoColumn from '@/components/columns/two-column'
+import HomeCarouselSlider from '@/components/home/home-carousel-slider'
 import HomeGenderTabs from '@/components/home/home-gender-tabs'
 import HomeSidebar from '@/components/home/home-sidebar'
 import Container from '@/components/layouts/container'
+import { fetchCampaigns } from '@/utils'
 import {
   fetchFirstCategories,
   fetchSecondCategories,
   fetchThirdCategoriesAll,
 } from '@/utils/category'
 
+import type { CampaignType } from '@/types'
 import type { FirstCategoryType } from '@/types/category'
 
 export default async function Page() {
@@ -18,6 +21,7 @@ export default async function Page() {
     await fetchSecondCategories('no-store')
   const thirdCategories: ThirdCategoryType[] =
     await fetchThirdCategoriesAll('no-store')
+  const campaigns: CampaignType[] = await fetchCampaigns('no-store')
 
   return (
     <div
@@ -26,31 +30,19 @@ export default async function Page() {
       `}
     >
       <Container>
-        <HomeGenderTabs categories={firstCategories} />
-      </Container>
-
-      <div
-        className={css`
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 1rem;
-        `}
-      >
         <div
           className={css`
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: rgba(45, 45, 45, 7%);
-            height: 18rem;
+            position: relative;
+            padding-top: 2rem;
+            margin-bottom: -2rem;
+            z-index: 2;
           `}
         >
-          Slide 1
+          <HomeGenderTabs categories={firstCategories} />
         </div>
-      </div>
+      </Container>
+
+      <HomeCarouselSlider campaigns={campaigns} />
 
       <div
         className={css`

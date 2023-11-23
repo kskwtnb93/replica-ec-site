@@ -1,4 +1,4 @@
-import { Box, Flex } from '@kuma-ui/core'
+import { Flex } from '@kuma-ui/core'
 import Tab from '@/components/home/home-gender-tabs/tab'
 import ReduxProvider from '@/components/redux-provider'
 
@@ -11,13 +11,11 @@ type Props = {
 export default function HomeGenderTabs({ categories }: Props) {
   return (
     <ReduxProvider>
-      <Box p="1rem 0">
-        <Flex justify="space-between" alignItems="center" gap="1rem">
-          {categories.map((category) => (
-            <Tab key={category.id} {...category} />
-          ))}
-        </Flex>
-      </Box>
+      <Flex justify="space-between" alignItems="center" gap="1rem">
+        {categories.map((category) => (
+          <Tab key={category.id} {...category} />
+        ))}
+      </Flex>
     </ReduxProvider>
   )
 }
