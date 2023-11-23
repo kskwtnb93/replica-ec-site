@@ -91,7 +91,7 @@ export default function GenderSection({
                 role="tooltip"
                 id={`${secondCategory.id}-child-categories`}
                 className={css`
-                  width: 24rem;
+                  width: 23rem;
                   position: absolute;
                   top: -1.2rem;
                   right: 2rem;
