@@ -35,3 +35,27 @@ export async function fetchProducts(
 
   return data.contents
 }
+
+export async function fetchProduct(
+  productId: string,
+  cache?: 'force-cache' | 'no-store' | { next: { revalidate: number } }
+): Promise<ProductContentsType[]> {
+  try {
+    const endPoint = process.env.PRODUCTS_API_URL + `products/${productId}`
+    const options = typeof cache === 'object' ? { ...cache } : { cache }
+    const headers = new Headers()
+    headers.append('X-MICROCMS-API-KEY', process.env.PRODUCTS_API_KEY || '')
+    options.headers = headers
+
+    const res = cache ? await fetch(endPoint, options) : await fetch(endPoint)
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch product data. Status: ${res.status}`)
+    }
+
+    return res.json() as Promise<ProductContentsType[]>
+  } catch (error) {
+    console.error('Error during fetchProduct:', error)
+    throw error
+  }
+}
