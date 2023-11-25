@@ -75,7 +75,7 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}
-        onBeforeInit={(swiper: Swiper) => {
+        onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
         className={css`
