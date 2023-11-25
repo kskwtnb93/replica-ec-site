@@ -83,7 +83,6 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
           padding: 4rem 0;
           opacity: 0;
           transition: opacity 0.15s linear;
-          overflow: visible;
 
           &.swiper-initialized {
             opacity: 1;
