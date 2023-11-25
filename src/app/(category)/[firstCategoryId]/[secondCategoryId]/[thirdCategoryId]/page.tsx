@@ -13,7 +13,7 @@ import {
   fetchThirdCategories,
   getCategory,
 } from '@/utils/category'
-import { getProducts } from '@/utils/product'
+import { fetchProducts } from '@/utils/product'
 
 import type { BreadcrumbType } from '@/types'
 import type {
@@ -59,7 +59,7 @@ export default async function Page({ params }: PageProps) {
 
   if (!thirdCategory) return notFound()
 
-  const products: ProductContentsType[] = await getProducts()
+  const products: ProductContentsType[] = await fetchProducts()
   const filteredProducts = products.filter((product) => {
     if (typeof product.firstCategory !== 'undefined') {
       // all 以外のカテゴリーは性別カテゴリー filter する条件を追加

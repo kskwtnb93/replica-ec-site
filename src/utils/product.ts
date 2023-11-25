@@ -1,6 +1,6 @@
 import type { ProductContentsType, ProductsType } from '@/types/product'
 
-export async function getProducts(
+export async function fetchProducts(
   limit: number = 100,
   offset: number = 0,
   fields: string[] | never[] = []
@@ -25,7 +25,7 @@ export async function getProducts(
   )
 
   if (data.offset + data.limit < data.totalCount) {
-    const contents = await getProducts(
+    const contents = await fetchProducts(
       data.limit,
       data.offset + data.limit,
       fields
