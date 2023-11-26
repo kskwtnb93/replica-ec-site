@@ -11,7 +11,13 @@ type Props = {
 
 export default function Breadcrumb({ data }: Props) {
   return (
-    <nav>
+    <nav
+      className={css`
+        @media (max-width: 979px) {
+          padding: 0 1rem;
+        }
+      `}
+    >
       <ol
         className={css`
           display: flex;
@@ -28,6 +34,11 @@ export default function Breadcrumb({ data }: Props) {
               line-height: 1;
               color: #a0a0a0;
               white-space: nowrap;
+
+              @media (max-width: 979px) {
+                font-size: 1rem;
+                line-height: 1.7;
+              }
             `}
           >
             {!item.href ? (
@@ -42,6 +53,10 @@ export default function Breadcrumb({ data }: Props) {
                     &:hover {
                       text-decoration: underline;
                     }
+
+                    @media (max-width: 979px) {
+                      color: #a0a0a0;
+                    }
                   `}
                 >
                   {item.text}
@@ -51,6 +66,16 @@ export default function Breadcrumb({ data }: Props) {
                     display: flex;
                     align-items: center;
                     margin: 0 0.5rem;
+
+                    @media (max-width: 979px) {
+                      color: #a0a0a0;
+                      margin: 0 0.5rem;
+
+                      svg {
+                        width: 1rem !important;
+                        height: 1rem !important;
+                      }
+                    }
                   `}
                 >
                   <IconArrowRight

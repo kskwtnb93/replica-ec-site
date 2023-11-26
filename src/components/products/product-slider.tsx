@@ -48,8 +48,6 @@ export default function ProductSlider({ images }: Props) {
   return (
     <div
       className={css`
-        padding: 0 0 3rem;
-
         .swiper-pagination-bullet-active {
           background-color: #2d2d2d;
         }
@@ -88,7 +86,8 @@ export default function ProductSlider({ images }: Props) {
             key={index}
             className={css`
               width: 100%;
-              height: 45rem;
+              aspect-ratio: 375 / 450;
+              overflow: hidden;
             `}
           >
             <Image
