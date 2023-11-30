@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import CloseButton from '@/components/layouts/header/nav-menu/close-button'
 import Heading from '@/components/layouts/header/nav-menu/heading'
 import ListItem from '@/components/layouts/header/nav-menu/list-item'
+import Overlay from '@/components/overlay.tsx'
 import { selectGender } from '@/redux/slices/gender'
 
 type Props = {
@@ -93,41 +94,7 @@ export default function NavMenu({ isOpen, onClick }: Props) {
         </div>
       </nav>
 
-      <div
-        onClick={onClick}
-        className={
-          isOpen
-            ? css`
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                right: 0;
-                left: 0;
-                z-index: 900;
-                display: block;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 50%);
-                transition: all 0.15s linear;
-                opacity: 0.8;
-              `
-            : css`
-                pointer-events: none;
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                right: 0;
-                left: 0;
-                z-index: 900;
-                display: block;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 50%);
-                transition: all 0.15s linear;
-                opacity: 0;
-              `
-        }
-      ></div>
+      <Overlay isOpen={isOpen} onClick={onClick} />
     </div>
   )
 }
