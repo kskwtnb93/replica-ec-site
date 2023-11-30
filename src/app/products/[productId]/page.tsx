@@ -1,9 +1,12 @@
 import { Box, css } from '@kuma-ui/core'
+import { headers } from 'next/headers'
+
 import Breadcrumb from '@/components/breadcrumb'
 import Container from '@/components/layouts/container'
 import ScrollXContainer from '@/components/layouts/scroll-x-container'
 import ProductCta from '@/components/products/product-cta'
 import ProductSlider from '@/components/products/product-slider'
+import ProductSnsShare from '@/components/products/product-sns-share'
 // import Tabs from '@/components/tabs';
 import TabsContents from '@/components/tab-contents'
 import { TAX_RATE } from '@/utils/constants'
@@ -18,6 +21,8 @@ type PageProps = {
 }
 
 export default async function Page({ params }: PageProps) {
+  const currentUrl = headers().get('referer')
+
   const product: ProductContentsType[] = await fetchProduct(
     params.productId,
     'no-store'
@@ -116,7 +121,7 @@ export default async function Page({ params }: PageProps) {
 
             @media (max-width: 979px) {
               order: 2;
-              padding: 3.8rem 0 1rem;
+              padding: 1rem 0;
             }
           `}
         >
@@ -196,6 +201,19 @@ export default async function Page({ params }: PageProps) {
           </div>
 
           <TabsContents datas={tabsData} />
+
+          <Container>
+            <div
+              className={css`
+                padding: 5rem 0 6.3rem;
+              `}
+            >
+              <ProductSnsShare
+                shareTitle={product.name}
+                shareUrl={currentUrl}
+              />
+            </div>
+          </Container>
         </div>
       </article>
     </>
