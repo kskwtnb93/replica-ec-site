@@ -4,14 +4,14 @@ import { useState } from 'react'
 
 import { css } from '@kuma-ui/core'
 import SnsShareButton from '@/components/buttons/sns-share-button'
-import SnsShareModal from '@/components/products/product-sns-share/sns-share-modal'
+import SnsShareModal from '@/components/sns-share/sns-share-modal'
 
 type Props = {
   shareTitle: string
   shareUrl: string
 }
 
-export default function ProductSnsShare({ shareUrl, shareTitle }: Props) {
+export default function ProductSnsShareSp({ shareUrl, shareTitle }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   function handleModalOpen() {

@@ -6,7 +6,7 @@ import Container from '@/components/layouts/container'
 import ScrollXContainer from '@/components/layouts/scroll-x-container'
 import ProductCta from '@/components/products/product-cta'
 import ProductSlider from '@/components/products/product-slider'
-import ProductSnsShare from '@/components/products/product-sns-share'
+import ProductSnsShare from '@/components/sns-share'
 // import Tabs from '@/components/tabs';
 import TabsContents from '@/components/tab-contents'
 import { TAX_RATE } from '@/utils/constants'

@@ -11,8 +11,8 @@ import {
 } from 'react-share'
 
 import Overlay from '@/components/overlay.tsx'
-import CloseIconButton from '@/components/products/product-sns-share/close-icon-button.tsx'
-import CloseTextButton from '@/components/products/product-sns-share/close-text-button.tsx'
+import CloseIconButton from '@/components/sns-share/close-icon-button'
+import CloseTextButton from '@/components/sns-share/close-text-button'
 
 type Props = {
   shareUrl: string
