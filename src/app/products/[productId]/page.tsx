@@ -5,11 +5,11 @@ import Breadcrumb from '@/components/breadcrumb'
 import Container from '@/components/layouts/container'
 import ScrollXContainer from '@/components/layouts/scroll-x-container'
 import ProductCta from '@/components/products/product-cta'
+import ProductInfo from '@/components/products/product-info'
 import ProductSlider from '@/components/products/product-slider'
 import ProductSnsShare from '@/components/sns-share'
 // import Tabs from '@/components/tabs';
 import TabsContents from '@/components/tab-contents'
-import { TAX_RATE } from '@/utils/constants'
 import { fetchProduct } from '@/utils/product'
 
 import type { ProductContentsType, ImageType } from '@/types/product'
@@ -27,11 +27,9 @@ export default async function Page({ params }: PageProps) {
     params.productId,
     'no-store'
   )
+
   const images: ImageType[] = product.images
   images.unshift(product.main_image)
-
-  const taxIncludedPrice = product.price + product.price * TAX_RATE
-  const formattedPrice: string = (taxIncludedPrice as number).toLocaleString()
 
   // タブエリア用コンテンツ
   const tabsData = [
@@ -148,50 +146,7 @@ export default async function Page({ params }: PageProps) {
                   padding: 2.5rem 0 3rem;
                 `}
               >
-                {/** ブランド名 */}
-                <p
-                  className={css`
-                    font-size: 1.4rem;
-                    line-height: 1.35714;
-                    font-weight: bold;
-                    color: #23abdd;
-                  `}
-                >
-                  {product.brand_name}
-                </p>
-
-                {/** 商品名 */}
-                <h1
-                  className={css`
-                    font-size: 1.4rem;
-                    line-height: 1.6;
-                    font-weight: bold;
-                    margin-top: 1rem;
-                  `}
-                >
-                  {product.name}
-                </h1>
-
-                {/** 値段 */}
-                <p
-                  className={css`
-                    font-size: 2.5rem;
-                    line-height: 1;
-                    font-weight: bold;
-                    margin-top: 2rem;
-                  `}
-                >
-                  ¥{formattedPrice}
-                  <span
-                    className={css`
-                      font-size: 1rem;
-                      line-height: 1;
-                      margin-left: 0.5rem;
-                    `}
-                  >
-                    税込
-                  </span>
-                </p>
+                <ProductInfo product={product} />
 
                 <Box mt="2.5rem">
                   <ProductCta />
