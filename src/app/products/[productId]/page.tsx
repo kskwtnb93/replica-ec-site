@@ -149,7 +149,7 @@ export default async function Page({ params }: PageProps) {
                 <ProductInfo product={product} />
 
                 <Box mt="2.5rem">
-                  <ProductCta />
+                  <ProductCta product={product} />
                 </Box>
               </div>
             </Container>

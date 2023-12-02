@@ -5,6 +5,11 @@ export interface ProductsType {
   limit: number
 }
 
+// カートに入っている時にはこの型を使う
+export interface ProductContentsWithQuantityType extends ProductContentsType {
+  quantity?: number
+}
+
 export interface ProductContentsType {
   id: string
   createdAt: string

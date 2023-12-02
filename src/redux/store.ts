@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import cartReducer from './slices/cart'
 import genderReducer from './slices/gender'
 
 export const store = configureStore({
   reducer: {
     gender: genderReducer,
+    cart: cartReducer,
+    cartTotalQuantity: cartReducer,
   },
 })
 
