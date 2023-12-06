@@ -19,7 +19,7 @@ type CartStateType = {
   cartTotalPrice: number
 }
 
-export default function CartDetailsContainer() {
+export default function CartDetailsBody() {
   const { cartItems }: CartStateType = useSelector(selectCartItems)
   const { cartTotalQuantity }: CartStateType = useSelector(
     selectCartTotalQuantity
