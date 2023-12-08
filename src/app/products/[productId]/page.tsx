@@ -1,12 +1,12 @@
 import { Box, css } from '@kuma-ui/core'
 import { headers } from 'next/headers'
 
+import ProductCta from '@/app/products/_components/product-cta'
+import ProductInfo from '@/app/products/_components/product-info'
+import ProductSlider from '@/app/products/_components/product-slider'
 import Breadcrumb from '@/components/breadcrumb'
 import Container from '@/components/layouts/container'
 import ScrollXContainer from '@/components/layouts/scroll-x-container'
-import ProductCta from '@/components/products/product-cta'
-import ProductInfo from '@/components/products/product-info'
-import ProductSlider from '@/components/products/product-slider'
 import ProductSnsShare from '@/components/sns-share'
 // import Tabs from '@/components/tabs';
 import TabsContents from '@/components/tab-contents'
