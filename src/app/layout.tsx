@@ -3,8 +3,8 @@ import './globals.scss'
 
 import { css } from '@kuma-ui/core'
 import { KumaRegistry } from '@kuma-ui/next-plugin/registry'
-import Footer from '@/components/layouts/footer'
-import Header from '@/components/layouts/header'
+import Footer from '@/app/_components/layouts/footer'
+import Header from '@/app/_components/layouts/header'
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import { Flex } from '@kuma-ui/core'
 import Tab from '@/app/(home)/_components/home-gender-tabs/tab'
-import ReduxProvider from '@/components/redux-provider'
+import ReduxProvider from '@/app/_components/redux-provider'
 
 import type { FirstCategoryType } from '@/types/category'
 

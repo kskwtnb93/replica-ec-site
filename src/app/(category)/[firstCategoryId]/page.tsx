@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation'
 
 import CategoryGenderTabs from '@/app/(category)/_components/category-gender-tabs'
 import Heading from '@/app/(category)/_components/heading'
-import Breadcrumb from '@/components/breadcrumb'
-import Container from '@/components/layouts/container'
+import Breadcrumb from '@/app/_components/breadcrumb'
+import Container from '@/app/_components/layouts/container'
 import {
   fetchFirstCategories,
   fetchSecondCategories,

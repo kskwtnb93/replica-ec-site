@@ -2,11 +2,11 @@ import { Box } from '@kuma-ui/core'
 import { notFound } from 'next/navigation'
 
 import Heading from '@/app/(category)/_components/heading'
-import Breadcrumb from '@/components/breadcrumb'
-import CategorySidebar from '@/components/category-sidebar'
-import TwoColumn from '@/components/columns/two-column'
-import Container from '@/components/layouts/container'
-import ProductList from '@/components/product-list'
+import Breadcrumb from '@/app/_components/breadcrumb'
+import CategorySidebar from '@/app/_components/category-sidebar'
+import TwoColumn from '@/app/_components/columns/two-column'
+import Container from '@/app/_components/layouts/container'
+import ProductList from '@/app/_components/product-list'
 import {
   fetchFirstCategories,
   fetchSecondCategories,

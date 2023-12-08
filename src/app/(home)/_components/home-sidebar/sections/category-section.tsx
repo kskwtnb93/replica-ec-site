@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 
 import Heading from '@/app/(home)/_components/home-sidebar/sections/parts/heading'
-import { IconArrowRight } from '@/components/icons'
+import { IconArrowRight } from '@/app/_components/icons'
 import { selectGender } from '@/redux/slices/gender'
 
 import type { SecondCategoryType, ThirdCategoryType } from '@/types/category'

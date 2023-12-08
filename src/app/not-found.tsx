@@ -1,5 +1,5 @@
-import Container from '@/components/layouts/container'
-import NotFoundContents from '@/components/not-found-contents'
+import Container from '@/app/_components/layouts/container'
+import NotFoundContents from '@/app/_components/not-found-contents'
 
 export default function NotFound() {
   return (

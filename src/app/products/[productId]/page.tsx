@@ -1,15 +1,15 @@
 import { Box, css } from '@kuma-ui/core'
 import { headers } from 'next/headers'
 
+import Breadcrumb from '@/app/_components/breadcrumb'
+import Container from '@/app/_components/layouts/container'
+import ScrollXContainer from '@/app/_components/layouts/scroll-x-container'
+import ProductSnsShare from '@/app/_components/sns-share'
+// import Tabs from '@/app/_components/tabs';
+import TabsContents from '@/app/_components/tab-contents'
 import ProductCta from '@/app/products/_components/product-cta'
 import ProductInfo from '@/app/products/_components/product-info'
 import ProductSlider from '@/app/products/_components/product-slider'
-import Breadcrumb from '@/components/breadcrumb'
-import Container from '@/components/layouts/container'
-import ScrollXContainer from '@/components/layouts/scroll-x-container'
-import ProductSnsShare from '@/components/sns-share'
-// import Tabs from '@/components/tabs';
-import TabsContents from '@/components/tab-contents'
 import { fetchProduct } from '@/utils/product'
 
 import type { ProductContentsType, ImageType } from '@/types/product'

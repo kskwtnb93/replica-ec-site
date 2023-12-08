@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 
-import AddCartButton from '@/components/buttons/add-to-cart-button'
+import AddCartButton from '@/app/_components/buttons/add-to-cart-button'
 import { addToCart } from '@/redux/slices/cart'
 
 import type { ProductContentsType } from '@/types/product'

@@ -1,6 +1,6 @@
 import { css } from '@kuma-ui/core'
 import CategorySection from '@/app/(home)/_components/home-sidebar/sections/category-section'
-import ReduxProvider from '@/components/redux-provider'
+import ReduxProvider from '@/app/_components/redux-provider'
 
 import type { SecondCategoryType, ThirdCategoryType } from '@/types/category'
 

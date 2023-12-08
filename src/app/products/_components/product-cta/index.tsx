@@ -1,5 +1,5 @@
+import ReduxProvider from '@/app/_components/redux-provider'
 import AddToCart from '@/app/products/_components/product-cta/add-to-cart'
-import ReduxProvider from '@/components/redux-provider'
 
 import type { ProductContentsType } from '@/types/product'
 

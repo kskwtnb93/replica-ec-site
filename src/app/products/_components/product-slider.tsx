@@ -10,7 +10,7 @@ import Image from 'next/image'
 import { A11y } from 'swiper'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
-import NavigationButton from '@/components/buttons/slider-navigation-button'
+import NavigationButton from '@/app/_components/buttons/slider-navigation-button'
 
 import type { ImageType } from '@/types/product'
 
