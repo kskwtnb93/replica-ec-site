@@ -3,7 +3,7 @@
 import { css } from '@kuma-ui/core'
 import { useSelector } from 'react-redux'
 
-import CartItem from '@/components/cart/cart-details/cart-item'
+import CartItem from '@/app/cart/_components/cart-details/cart-item'
 import {
   selectCartItems,
   selectCartTotalPrice,

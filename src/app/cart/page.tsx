@@ -1,5 +1,5 @@
 import { css } from '@kuma-ui/core'
-import CartDetails from '@/components/cart/cart-details'
+import CartDetails from '@/app/cart/_components/cart-details'
 import Container from '@/components/layouts/container'
 
 export default function Page() {

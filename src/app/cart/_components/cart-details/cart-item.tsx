@@ -3,8 +3,8 @@
 import { css } from '@kuma-ui/core'
 import Image from 'next/image'
 
-import DeleteButton from '@/components/cart/cart-details/delete-button'
-import QuantityIncrementDecrementButton from '@/components/cart/cart-details/quantity-increment-decrement-button'
+import DeleteButton from '@/app/cart/_components/cart-details/delete-button'
+import QuantityIncrementDecrementButton from '@/app/cart/_components/cart-details/quantity-increment-decrement-button'
 import { TAX_RATE } from '@/utils/constants'
 
 import type {
