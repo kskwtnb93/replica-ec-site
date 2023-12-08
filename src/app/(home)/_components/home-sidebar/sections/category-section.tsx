@@ -4,7 +4,7 @@ import { css } from '@kuma-ui/core'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 
-import Heading from '@/components/home/home-sidebar/sections/parts/heading'
+import Heading from '@/app/(home)/_components/home-sidebar/sections/parts/heading'
 import { IconArrowRight } from '@/components/icons'
 import { selectGender } from '@/redux/slices/gender'
 

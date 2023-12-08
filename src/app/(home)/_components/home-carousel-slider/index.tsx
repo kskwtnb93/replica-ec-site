@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { A11y, Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
-import NavigationButton from '@/components/home/home-carousel-slider/navigation-button'
+import NavigationButton from '@/app/(home)/_components/home-carousel-slider/navigation-button'
 
 import type { CampaignType } from '@/types'
 
