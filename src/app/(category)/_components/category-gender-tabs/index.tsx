@@ -1,8 +1,7 @@
 import { css } from '@kuma-ui/core'
-import Tab from '@/components/category/category-gender-tabs/tab'
+import Tab from '@/app/(category)/_components/category-gender-tabs/tab'
 
 import type { FirstCategoryType } from '@/types/category'
-
 type Props = {
   categories: FirstCategoryType[]
   active: string

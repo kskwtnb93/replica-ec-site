@@ -1,8 +1,8 @@
 import { Box } from '@kuma-ui/core'
 import { notFound } from 'next/navigation'
 
+import Heading from '@/app/(category)/_components/heading'
 import Breadcrumb from '@/components/breadcrumb'
-import Heading from '@/components/category/heading'
 import CategorySidebar from '@/components/category-sidebar'
 import TwoColumn from '@/components/columns/two-column'
 import Container from '@/components/layouts/container'
@@ -23,7 +23,6 @@ import type {
 } from '@/types/category'
 
 import type { ProductContentsType } from '@/types/product'
-
 type PageProps = {
   params: {
     firstCategoryId: string

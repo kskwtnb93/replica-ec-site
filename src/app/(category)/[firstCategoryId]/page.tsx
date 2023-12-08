@@ -2,9 +2,9 @@ import { Box, css } from '@kuma-ui/core'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import CategoryGenderTabs from '@/app/(category)/_components/category-gender-tabs'
+import Heading from '@/app/(category)/_components/heading'
 import Breadcrumb from '@/components/breadcrumb'
-import CategoryGenderTabs from '@/components/category/category-gender-tabs'
-import Heading from '@/components/category/heading'
 import Container from '@/components/layouts/container'
 import {
   fetchFirstCategories,
@@ -19,7 +19,6 @@ import type {
   SecondCategoryType,
   ThirdCategoryType,
 } from '@/types/category'
-
 type PageProps = {
   params: {
     firstCategoryId: string
