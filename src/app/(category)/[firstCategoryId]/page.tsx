@@ -1,7 +1,7 @@
 import { Box, css } from '@kuma-ui/core'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import CategoryListItem from '@/app/(category)/_components/category-list-item'
 import Heading from '@/app/(category)/_components/heading'
 import Breadcrumb from '@/app/_components/breadcrumb'
 import GenderTabs from '@/app/_components/gender-tabs'
@@ -69,7 +69,7 @@ export default async function Page({ params }: PageProps) {
           <GenderTabs categories={firstCategories} isLink={true} />
         </Box>
 
-        <Box mb="5.5rem">
+        {/* <Box mb="5.5rem">
           <ul
             className={css`
               display: grid;
@@ -96,7 +96,7 @@ export default async function Page({ params }: PageProps) {
               </li>
             ))}
           </ul>
-        </Box>
+        </Box> */}
 
         {secondCategories.map((secondCategory) => (
           <section
@@ -115,18 +115,7 @@ export default async function Page({ params }: PageProps) {
                 margin-bottom: 3rem;
               `}
             >
-              <Link
-                href={`/${params.firstCategoryId}/${secondCategory.id}/`}
-                className={css`
-                  color: #23abdd;
-
-                  &:hover {
-                    text-decoration: underline;
-                  }
-                `}
-              >
-                {secondCategory.name}
-              </Link>
+              {secondCategory.name}
             </h2>
 
             {thirdCategories.filter(
@@ -139,44 +128,23 @@ export default async function Page({ params }: PageProps) {
                   gap: 3.5rem 5.8rem;
                 `}
               >
+                <CategoryListItem
+                  key={secondCategory.id}
+                  href={`/${params.firstCategoryId}/${secondCategory.id}/`}
+                  category={secondCategory}
+                  isFirst={true}
+                />
                 {thirdCategories
                   .filter(
                     (thirdCategory) =>
                       secondCategory.id === thirdCategory.parent_id
                   )
                   .map((filteredThirdCategory) => (
-                    <li key={filteredThirdCategory.id}>
-                      <Link
-                        href={`/${params.firstCategoryId}/${secondCategory.id}/`}
-                        className={css`
-                          &:hover {
-                            p:nth-of-type(1) {
-                              opacity: 0.8;
-                            }
-                          }
-                        `}
-                      >
-                        <p
-                          className={css`
-                            display: block;
-                            width: 100%;
-                            height: 15rem;
-                            background-color: #f8f8f8;
-                            border-radius: 1rem;
-                            margin-bottom: 1rem;
-                          `}
-                        ></p>
-                        <p
-                          className={css`
-                            font-size: 1.3rem;
-                            line-height: 1.6;
-                            color: #a0a0a0;
-                          `}
-                        >
-                          {filteredThirdCategory.name}
-                        </p>
-                      </Link>
-                    </li>
+                    <CategoryListItem
+                      key={filteredThirdCategory.id}
+                      href={`/${params.firstCategoryId}/${secondCategory.id}/${filteredThirdCategory.id}/`}
+                      category={filteredThirdCategory}
+                    />
                   ))}
               </ul>
             )}
