@@ -2,9 +2,9 @@ import { Box, css } from '@kuma-ui/core'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import CategoryGenderTabs from '@/app/(category)/_components/category-gender-tabs'
 import Heading from '@/app/(category)/_components/heading'
 import Breadcrumb from '@/app/_components/breadcrumb'
+import GenderTabs from '@/app/_components/gender-tabs'
 import Container from '@/app/_components/layouts/container'
 import {
   fetchFirstCategories,
@@ -66,10 +66,7 @@ export default async function Page({ params }: PageProps) {
         <Heading as="h1" text={headingText} />
 
         <Box mb="3.3rem">
-          <CategoryGenderTabs
-            categories={firstCategories}
-            active={params.firstCategoryId}
-          />
+          <GenderTabs categories={firstCategories} isLink={true} />
         </Box>
 
         <Box mb="5.5rem">
