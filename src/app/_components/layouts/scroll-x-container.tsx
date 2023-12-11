@@ -18,7 +18,10 @@ export default function ScrollXContainer({
           overflow-x: scroll;
           -ms-overflow-style: none;
           scrollbar-width: none;
-          -webkit-overflow-scrolling: touch;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
       `}
     >
