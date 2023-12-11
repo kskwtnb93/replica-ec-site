@@ -12,7 +12,7 @@ export default function ScrollXContainer({
         margin: 0 auto;
         padding: 0 2rem;
 
-        @media (max-width: 979px) {
+        @media (max-width: 576px) {
           width: 100%;
           padding: 0;
           overflow-x: scroll;
@@ -27,7 +27,7 @@ export default function ScrollXContainer({
     >
       <div
         className={css`
-          @media (max-width: 979px) {
+          @media (max-width: 576px) {
             display: inline-block;
             min-width: 100%;
           }

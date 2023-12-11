@@ -8,3 +8,8 @@
 img {
   height: auto;
 }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 0.2rem solid rgb(229 151 0);
+}

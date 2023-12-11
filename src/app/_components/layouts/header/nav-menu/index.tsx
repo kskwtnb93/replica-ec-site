@@ -75,8 +75,8 @@ export default function NavMenu({ isOpen, onClick }: Props) {
 
         <div>
           {menuData.map((data) => (
-            <section key={data.id}>
-              <Heading as="h2" text={data.text} />
+            <ul key={data.id}>
+              <Heading as="li" text={data.text} />
 
               <ul>
                 {data.contents.map((child) => (
@@ -89,7 +89,7 @@ export default function NavMenu({ isOpen, onClick }: Props) {
                   />
                 ))}
               </ul>
-            </section>
+            </ul>
           ))}
         </div>
       </nav>

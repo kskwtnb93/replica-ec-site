@@ -12,7 +12,7 @@ export default function Breadcrumb({ data }: Props) {
   return (
     <nav
       className={css`
-        @media (max-width: 979px) {
+        @media (max-width: 576px) {
           padding: 0 1rem;
         }
       `}
@@ -34,7 +34,7 @@ export default function Breadcrumb({ data }: Props) {
               color: #a0a0a0;
               white-space: nowrap;
 
-              @media (max-width: 979px) {
+              @media (max-width: 576px) {
                 font-size: 1rem;
                 line-height: 1.7;
               }
@@ -53,7 +53,7 @@ export default function Breadcrumb({ data }: Props) {
                       text-decoration: underline;
                     }
 
-                    @media (max-width: 979px) {
+                    @media (max-width: 576px) {
                       color: #a0a0a0;
                     }
                   `}
@@ -66,7 +66,7 @@ export default function Breadcrumb({ data }: Props) {
                     align-items: center;
                     margin: 0 0.5rem;
 
-                    @media (max-width: 979px) {
+                    @media (max-width: 576px) {
                       color: #a0a0a0;
                       margin: 0 0.5rem;
 
