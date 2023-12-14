@@ -1,4 +1,3 @@
-import { css } from '@kuma-ui/core'
 import CategorySection from '@/app/(home)/_components/home-sidebar/sections/category-section'
 import ReduxProvider from '@/app/_components/redux-provider'
 
@@ -15,7 +14,7 @@ export default function HomeSidebar({
 }: Props) {
   return (
     <aside>
-      <h2
+      {/* <h2
         className={css`
           font-weight: bold;
           text-overflow: ellipsis;
@@ -27,8 +26,8 @@ export default function HomeSidebar({
           margin-bottom: 1.5rem;
         `}
       >
-        探す
-      </h2>
+        アイテムを探す
+      </h2> */}
 
       <ReduxProvider>
         <CategorySection

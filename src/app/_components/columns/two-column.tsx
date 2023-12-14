@@ -12,6 +12,10 @@ export default function TwoColumn({ main, sidebar }: Props) {
         display: grid;
         gap: 40px;
         grid-template-columns: 180px auto;
+
+        @media (max-width: 576px) {
+          display: block;
+        }
       `}
     >
       <div

@@ -1,4 +1,4 @@
-import { Box, css } from '@kuma-ui/core'
+import { css } from '@kuma-ui/core'
 import HomeCarouselSlider from '@/app/(home)/_components/home-carousel-slider'
 import HomeSidebar from '@/app/(home)/_components/home-sidebar'
 import TwoColumn from '@/app/_components/columns/two-column'
@@ -50,7 +50,15 @@ export default async function Page() {
         `}
       >
         <Container>
-          <Box p="4rem 0 6rem">
+          <div
+            className={css`
+              padding: 4rem 0 6rem;
+
+              @media (max-width: 576px) {
+                padding: 4rem 0 0;
+              }
+            `}
+          >
             <TwoColumn
               main={
                 <>
@@ -71,7 +79,7 @@ export default async function Page() {
                 />
               }
             />
-          </Box>
+          </div>
         </Container>
       </div>
     </div>
