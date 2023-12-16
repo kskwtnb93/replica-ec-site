@@ -23,9 +23,23 @@ export default function DeleteButton({ id }: Props) {
         cursor: pointer;
         color: #888888;
         text-decoration: underline;
+        font-size: 1.3rem;
+
+        @media (max-width: 576px) {
+          font-size: 1rem;
+        }
       `}
     >
-      削除する
+      削除
+      <span
+        className={css`
+          @media (min-width: 577px) {
+            display: none;
+          }
+        `}
+      >
+        する
+      </span>
     </button>
   )
 }

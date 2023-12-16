@@ -39,18 +39,25 @@ export default function CartItem({
     <div
       className={css`
         display: flex;
-        padding: 1.2rem 0;
+        padding: 3rem 0;
         border-bottom: 0.1rem solid #f3f3f3;
+
+        @media (max-width: 576px) {
+          display: flex;
+          padding: 1.2rem 0;
+          border-bottom: 0.1rem solid #f3f3f3;
+        }
       `}
     >
       <p
         className={css`
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 8.5rem;
-          height: 10.2rem;
-          background-color: #f3f3f3;
+          width: 100%;
+          max-width: 12.5rem;
+          aspect-ratio: 12.5 / 15;
+
+          @media (max-width: 576px) {
+            max-width: 8.5rem;
+          }
         `}
       >
         <Image
@@ -70,41 +77,71 @@ export default function CartItem({
       <div
         className={css`
           flex: 1;
-          padding: 0 0.5rem 0 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 0 0 2rem;
+
+          @media (max-width: 576px) {
+            display: block;
+            padding: 0 0.5rem 0 1rem;
+          }
         `}
       >
-        <p
-          className={css`
-            overflow: hidden;
-            text-overflow: ellipsis;
-            word-wrap: normal;
-            white-space: nowrap;
-            font-size: 1rem;
-            line-height: 1.5;
-          `}
-        >
-          {brand_name}
-        </p>
+        <div>
+          <p
+            className={css`
+              overflow: hidden;
+              text-overflow: ellipsis;
+              word-wrap: normal;
+              white-space: nowrap;
+              font-size: 1.3rem;
+              line-height: 1.6;
+
+              @media (max-width: 576px) {
+                font-size: 1rem;
+                line-height: 1.5;
+              }
+            `}
+          >
+            {brand_name}
+          </p>
+
+          <p
+            className={css`
+              overflow: hidden;
+              text-overflow: ellipsis;
+              word-wrap: normal;
+              white-space: nowrap;
+              font-size: 1.3rem;
+              line-height: 1.6;
+
+              @media (max-width: 576px) {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-top: 0.2rem;
+              }
+            `}
+          >
+            {name}
+          </p>
+        </div>
 
         <p
           className={css`
-            overflow: hidden;
-            text-overflow: ellipsis;
-            word-wrap: normal;
-            white-space: nowrap;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-top: 0.2rem;
-          `}
-        >
-          {name}
-        </p>
+            display: flex;
+            justify-content: center;
+            min-width: 9rem;
+            font-size: 1.3rem;
+            line-height: 1.6;
 
-        <p
-          className={css`
-            font-size: 1.4rem;
-            line-height: 1.357142857142857;
-            margin-top: 0.2rem;
+            @media (max-width: 576px) {
+              display: block;
+              min-width: inherit;
+              font-size: 1.4rem;
+              line-height: 1.357142857142857;
+              margin-top: 0.2rem;
+            }
           `}
         >
           ¥{formattedPrice}
@@ -115,21 +152,47 @@ export default function CartItem({
         className={css`
           position: relative;
           display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          justify-content: center;
-          width: 9.5rem;
-          height: 10.2rem;
-          padding-left: 0.5rem;
+          justify-content: space-between;
+          align-items: center;
+
+          @media (max-width: 576px) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            width: 9.5rem;
+            height: 10.2rem;
+            padding-left: 0.5rem;
+          }
         `}
       >
-        <QuantityIncrementDecrementButton id={id} quantity={quantity} />
+        <div
+          className={css`
+            @media (min-width: 577px) {
+              min-width: 9.4rem;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+            }
+          `}
+        >
+          <QuantityIncrementDecrementButton id={id} quantity={quantity} />
+        </div>
 
         <div
           className={css`
-            position: absolute;
-            right: 0;
-            bottom: 0;
+            @media (min-width: 577px) {
+              min-width: 5.1rem;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+            }
+
+            @media (max-width: 576px) {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+            }
           `}
         >
           <DeleteButton id={id} />

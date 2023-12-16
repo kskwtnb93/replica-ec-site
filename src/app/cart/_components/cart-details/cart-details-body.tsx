@@ -57,26 +57,49 @@ export default function CartDetailsBody() {
         className={css`
           display: flex;
           align-items: center;
+          width: 32rem;
           padding: 1.5rem 0;
+          margin-left: auto;
+
+          @media (max-width: 768px) {
+            width: inherit;
+            padding: 1.5rem 0 2rem;
+          }
         `}
       >
         <dt
           className={css`
-            width: 25%;
-            font-size: 17px;
-            line-height: 1.294117647058824;
+            @media (min-width: 769px) {
+              width: 12rem;
+              text-align: right;
+              font-size: 1.5rem;
+            }
+
+            @media (max-width: 768px) {
+              width: 25%;
+              font-size: 1.7rem;
+              line-height: 1.294117647058824;
+            }
           `}
         >
           商品合計
         </dt>
         <dd
           className={css`
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            font-size: 21px;
-            line-height: 1.238095238095238;
-            padding-left: 1.5rem;
+            @media (min-width: 769px) {
+              flex: 1;
+              text-align: right;
+              font-size: 1.5rem;
+            }
+
+            @media (max-width: 768px) {
+              flex: 1;
+              display: flex;
+              justify-content: flex-end;
+              font-size: 2.1rem;
+              line-height: 1.238095238095238;
+              padding-left: 1.5rem;
+            }
           `}
         >
           ¥{formattedTotalPrice}
