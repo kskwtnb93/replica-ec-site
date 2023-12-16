@@ -1,9 +1,8 @@
 import { Box, css } from '@kuma-ui/core'
 import { headers } from 'next/headers'
 
-import Breadcrumb from '@/app/_components/breadcrumb'
 import Container from '@/app/_components/layouts/container'
-import ScrollXContainer from '@/app/_components/layouts/scroll-x-container'
+import HasBreadcrumbLayout from '@/app/_components/layouts/has-breadcrumb-layout'
 import ProductSnsShare from '@/app/_components/sns-share'
 // import Tabs from '@/app/_components/tabs';
 import TabsContents from '@/app/_components/tab-contents'
@@ -105,72 +104,50 @@ export default async function Page({ params }: PageProps) {
   ]
 
   return (
-    <>
-      <article
+    <HasBreadcrumbLayout
+      breadcrumbData={breadcrumbData}
+      parentTag="article"
+      bgColor="#f8f8f8"
+    >
+      <div
         className={css`
-          background-color: #f8f8f8;
-          display: flex;
-          flex-direction: column;
+          order: 1;
         `}
       >
         <div
           className={css`
-            padding: 2.5rem 0 4rem;
-
-            @media (max-width: 979px) {
-              order: 2;
-              padding: 1rem 0;
-            }
+            background-color: #fff;
           `}
         >
-          <ScrollXContainer>
-            <Breadcrumb data={breadcrumbData} />
-          </ScrollXContainer>
-        </div>
-
-        <div
-          className={css`
-            order: 1;
-          `}
-        >
-          <div
-            className={css`
-              background-color: #fff;
-            `}
-          >
-            <ProductSlider images={images} />
-
-            <Container>
-              <div
-                className={css`
-                  padding: 2.5rem 0 3rem;
-                `}
-              >
-                <ProductInfo product={product} />
-
-                <Box mt="2.5rem">
-                  <ProductCta product={product} />
-                </Box>
-              </div>
-            </Container>
-          </div>
-
-          <TabsContents datas={tabsData} />
+          <ProductSlider images={images} />
 
           <Container>
             <div
               className={css`
-                padding: 5rem 0 6.3rem;
+                padding: 2.5rem 0 3rem;
               `}
             >
-              <ProductSnsShare
-                shareTitle={product.name}
-                shareUrl={currentUrl}
-              />
+              <ProductInfo product={product} />
+
+              <Box mt="2.5rem">
+                <ProductCta product={product} />
+              </Box>
             </div>
           </Container>
         </div>
-      </article>
-    </>
+
+        <TabsContents datas={tabsData} />
+
+        <Container>
+          <div
+            className={css`
+              padding: 5rem 0 6.3rem;
+            `}
+          >
+            <ProductSnsShare shareTitle={product.name} shareUrl={currentUrl} />
+          </div>
+        </Container>
+      </div>
+    </HasBreadcrumbLayout>
   )
 }

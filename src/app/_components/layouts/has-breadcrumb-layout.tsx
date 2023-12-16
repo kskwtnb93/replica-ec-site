@@ -7,16 +7,33 @@ import type { BreadcrumbType } from '@/types'
 type Props = {
   children: React.ReactNode
   breadcrumbData: BreadcrumbType[]
+  parentTag?: string
   bgColor?: string
 }
 
-export default async function Page({
+export default async function HasBreadcrumbLayout({
   children,
   breadcrumbData,
+  parentTag,
   bgColor,
 }: Props) {
   return (
-    <Box bgColor={bgColor ? bgColor : 'transparent'}>
+    <Box
+      as={parentTag ? parentTag : 'div'}
+      bgColor={bgColor ? bgColor : 'transparent'}
+      className={css`
+        @media (min-width: 577px) {
+          background-color: transparent !important;
+        }
+
+        @media (max-width: 576px) {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      `}
+    >
       <div
         className={css`
           @media (max-width: 576px) {

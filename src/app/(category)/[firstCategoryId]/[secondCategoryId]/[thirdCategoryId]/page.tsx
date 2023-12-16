@@ -100,79 +100,81 @@ export default async function Page({ params }: PageProps) {
   ]
 
   return (
-    <article>
-      <HasBreadcrumbLayout breadcrumbData={breadcrumbData} bgColor="#f8f8f8">
-        <Container>
-          <div
-            className={css`
-              padding-bottom: 8rem;
+    <HasBreadcrumbLayout
+      breadcrumbData={breadcrumbData}
+      parentTag="article"
+      bgColor="#f8f8f8"
+    >
+      <Container>
+        <div
+          className={css`
+            padding-bottom: 8rem;
 
-              @media (max-width: 576px) {
-                padding-top: 3rem;
-                padding-bottom: 0;
-              }
-            `}
-          >
-            <TwoColumn
-              main={
+            @media (max-width: 576px) {
+              padding-top: 3rem;
+              padding-bottom: 0;
+            }
+          `}
+        >
+          <TwoColumn
+            main={
+              <div
+                className={css`
+                  @media (max-width: 576px) {
+                    background-color: #fff;
+                  }
+                `}
+              >
                 <div
                   className={css`
+                    margin-bottom: 3rem;
+
                     @media (max-width: 576px) {
-                      background-color: #fff;
-                    }
-                  `}
-                >
-                  <div
-                    className={css`
                       margin-bottom: 3rem;
-
-                      @media (max-width: 576px) {
-                        margin-bottom: 3rem;
-                      }
-                    `}
-                  >
-                    <Heading
-                      as="h1"
-                      text={
-                        firstCategory.id !== 'all'
-                          ? `${thirdCategory.name}（${firstCategory.ja_name}）`
-                          : `${thirdCategory.name}`
-                      }
-                    />
-                  </div>
-
-                  <div
-                    className={css`
-                      @media (max-width: 576px) {
-                        margin: 0 -2rem;
-                      }
-                    `}
-                  >
-                    <ProductList products={filteredProducts} />
-                  </div>
-                </div>
-              }
-              sidebar={
-                <div
-                  className={css`
-                    @media (max-width: 576px) {
-                      display: none;
                     }
                   `}
                 >
-                  <CategorySidebar
-                    productCount={filteredProducts.length}
-                    firstCategories={firstCategories}
-                    secondCategories={secondCategories}
-                    thirdCategories={thirdCategories}
-                    params={params}
+                  <Heading
+                    as="h1"
+                    text={
+                      firstCategory.id !== 'all'
+                        ? `${thirdCategory.name}（${firstCategory.ja_name}）`
+                        : `${thirdCategory.name}`
+                    }
                   />
                 </div>
-              }
-            />
-          </div>
-        </Container>
-      </HasBreadcrumbLayout>
-    </article>
+
+                <div
+                  className={css`
+                    @media (max-width: 576px) {
+                      margin: 0 -2rem;
+                    }
+                  `}
+                >
+                  <ProductList products={filteredProducts} />
+                </div>
+              </div>
+            }
+            sidebar={
+              <div
+                className={css`
+                  @media (max-width: 576px) {
+                    display: none;
+                  }
+                `}
+              >
+                <CategorySidebar
+                  productCount={filteredProducts.length}
+                  firstCategories={firstCategories}
+                  secondCategories={secondCategories}
+                  thirdCategories={thirdCategories}
+                  params={params}
+                />
+              </div>
+            }
+          />
+        </div>
+      </Container>
+    </HasBreadcrumbLayout>
   )
 }
