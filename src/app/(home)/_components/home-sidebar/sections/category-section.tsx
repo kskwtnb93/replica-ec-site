@@ -42,7 +42,9 @@ export default function GenderSection({
             className={css`
               @media (min-width: 576px) {
                 position: relative;
-                transition: all 0.3s;
+                transition:
+                  opacity 0.3s,
+                  background-color 0.3s;
 
                 ul {
                   pointer-events: none;
@@ -73,7 +75,6 @@ export default function GenderSection({
                       font-size: 1.3rem;
                       line-height: 1.6;
                       color: #2d2d2d;
-                      transition: all 0.3s;
                     }
 
                     @media (max-width: 576px) {

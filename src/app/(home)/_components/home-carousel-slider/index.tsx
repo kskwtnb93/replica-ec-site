@@ -104,7 +104,7 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
                   overflow: hidden;
                   border-radius: 1rem;
                   position: relative;
-                  height: 29.55rem;
+                  aspect-ratio: 35 / 23;
                   box-shadow: 0.4rem 0.6rem 1.6rem rgba(0, 0, 0, 15%);
                   background-color: rgba(45, 45, 45, 7%);
                 `}

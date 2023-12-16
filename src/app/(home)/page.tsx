@@ -64,7 +64,9 @@ export default async function Page() {
                 <>
                   <div
                     className={css`
-                      min-height: 100vh;
+                      @media (min-width: 577px) {
+                        min-height: 100vh;
+                      }
                     `}
                   >
                     main
