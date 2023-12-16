@@ -1,6 +1,10 @@
 import { css } from '@kuma-ui/core'
 
-export default function Container({ children }: { children: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode
+}
+
+export default function Container({ children }: Props) {
   return (
     <div
       className={css`

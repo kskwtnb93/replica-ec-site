@@ -1,11 +1,11 @@
-import { Box } from '@kuma-ui/core'
+import { css } from '@kuma-ui/core'
 import { notFound } from 'next/navigation'
 
 import Heading from '@/app/(category)/_components/heading'
-import Breadcrumb from '@/app/_components/breadcrumb'
 import CategorySidebar from '@/app/_components/category-sidebar'
-import TwoColumn from '@/app/_components/columns/two-column'
+import TwoColumn from '@/app/_components/layouts/columns/two-column'
 import Container from '@/app/_components/layouts/container'
+import HasBreadcrumbLayout from '@/app/_components/layouts/has-breadcrumb-layout'
 import ProductList from '@/app/_components/product-list'
 import {
   fetchFirstCategories,
@@ -100,36 +100,79 @@ export default async function Page({ params }: PageProps) {
   ]
 
   return (
-    <Container>
-      <Box m="2.5rem 0 4rem">
-        <Breadcrumb data={breadcrumbData} />
-      </Box>
-      <Box pb="8rem">
-        <TwoColumn
-          main={
-            <>
-              <Heading
-                as="h1"
-                text={
-                  firstCategory.id !== 'all'
-                    ? `${thirdCategory.name}（${firstCategory.ja_name}）`
-                    : `${thirdCategory.name}`
-                }
-              />
-              <ProductList products={filteredProducts} />
-            </>
-          }
-          sidebar={
-            <CategorySidebar
-              productCount={filteredProducts.length}
-              firstCategories={firstCategories}
-              secondCategories={secondCategories}
-              thirdCategories={thirdCategories}
-              params={params}
+    <article>
+      <HasBreadcrumbLayout breadcrumbData={breadcrumbData} bgColor="#f8f8f8">
+        <Container>
+          <div
+            className={css`
+              padding-bottom: 8rem;
+
+              @media (max-width: 576px) {
+                padding-top: 3rem;
+                padding-bottom: 0;
+              }
+            `}
+          >
+            <TwoColumn
+              main={
+                <div
+                  className={css`
+                    @media (max-width: 576px) {
+                      background-color: #fff;
+                    }
+                  `}
+                >
+                  <div
+                    className={css`
+                      margin-bottom: 3rem;
+
+                      @media (max-width: 576px) {
+                        margin-bottom: 3rem;
+                      }
+                    `}
+                  >
+                    <Heading
+                      as="h1"
+                      text={
+                        firstCategory.id !== 'all'
+                          ? `${thirdCategory.name}（${firstCategory.ja_name}）`
+                          : `${thirdCategory.name}`
+                      }
+                    />
+                  </div>
+
+                  <div
+                    className={css`
+                      @media (max-width: 576px) {
+                        margin: 0 -2rem;
+                      }
+                    `}
+                  >
+                    <ProductList products={filteredProducts} />
+                  </div>
+                </div>
+              }
+              sidebar={
+                <div
+                  className={css`
+                    @media (max-width: 576px) {
+                      display: none;
+                    }
+                  `}
+                >
+                  <CategorySidebar
+                    productCount={filteredProducts.length}
+                    firstCategories={firstCategories}
+                    secondCategories={secondCategories}
+                    thirdCategories={thirdCategories}
+                    params={params}
+                  />
+                </div>
+              }
             />
-          }
-        />
-      </Box>
-    </Container>
+          </div>
+        </Container>
+      </HasBreadcrumbLayout>
+    </article>
   )
 }

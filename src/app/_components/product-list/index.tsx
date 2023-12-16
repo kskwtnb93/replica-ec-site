@@ -11,8 +11,16 @@ export default function ProductList({ products }: Props) {
     <ul
       className={css`
         display: grid;
-        gap: 30px 38px;
+        gap: 3rem 3.8rem;
         grid-template-columns: 1fr 1fr 1fr;
+
+        @media (max-width: 1020px) {
+          gap: calc(30 / 1020 * 100vw) calc(38 / 1020 * 100vw);
+        }
+
+        @media (max-width: 576px) {
+          gap: 0;
+        }
       `}
     >
       {products.map((product, index) => (

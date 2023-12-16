@@ -1,8 +1,8 @@
 import { css } from '@kuma-ui/core'
 import HomeCarouselSlider from '@/app/(home)/_components/home-carousel-slider'
 import HomeSidebar from '@/app/(home)/_components/home-sidebar'
-import TwoColumn from '@/app/_components/columns/two-column'
 import GenderTabs from '@/app/_components/gender-tabs'
+import TwoColumn from '@/app/_components/layouts/columns/two-column'
 import Container from '@/app/_components/layouts/container'
 import { fetchCampaigns } from '@/utils'
 import {

@@ -30,8 +30,9 @@ export default function Card({ product, imagePriority }: Props) {
           href={`/products/${id}`}
           className={css`
             display: block;
-            height: 274px;
+            aspect-ratio: 228 / 274;
             transition: all ease-in 0.15s;
+            overflow: hidden;
 
             &:hover {
               opacity: 0.8;
@@ -54,33 +55,50 @@ export default function Card({ product, imagePriority }: Props) {
           />
         </Link>
       </p>
-      <p
+
+      <div
         className={css`
-          font-size: 1.2rem;
-          font-weight: 600;
-          line-height: 1.5;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          word-break: break-word;
-          word-wrap: normal;
-          white-space: nowrap;
-          color: #2d2d2d;
-          margin-top: 5px;
+          padding: 0 1rem 2rem;
         `}
       >
-        {brand_name}
-      </p>
-      <p
-        className={css`
-          font-size: 16px;
-          font-weight: 600;
-          line-height: 1.5;
-          margin-top: 7px;
-          color: #2d2d2d;
-        `}
-      >
-        ¥{formattedPrice}
-      </p>
+        <p
+          className={css`
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            word-wrap: normal;
+            white-space: nowrap;
+            color: #2d2d2d;
+            margin-top: 0.5rem;
+
+            @media (max-width: 576px) {
+              font-size: 1rem;
+              margin-top: 1rem;
+            }
+          `}
+        >
+          {brand_name}
+        </p>
+        <p
+          className={css`
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 7px;
+            color: #2d2d2d;
+
+            @media (max-width: 576px) {
+              font-size: 1.4rem;
+              margin-top: 0.7rem;
+            }
+          `}
+        >
+          ¥{formattedPrice}
+        </p>
+      </div>
     </li>
   )
 }

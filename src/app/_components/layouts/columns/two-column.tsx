@@ -10,8 +10,12 @@ export default function TwoColumn({ main, sidebar }: Props) {
     <div
       className={css`
         display: grid;
-        gap: 40px;
-        grid-template-columns: 180px auto;
+        gap: 4rem;
+        grid-template-columns: 18rem auto;
+
+        @media (max-width: 1020px) {
+          gap: calc(40 / 1020 * 100vw);
+        }
 
         @media (max-width: 576px) {
           display: block;
