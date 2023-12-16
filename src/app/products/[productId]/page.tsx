@@ -1,10 +1,8 @@
-import { Box, css } from '@kuma-ui/core'
-import { headers } from 'next/headers'
-
+import { css } from '@kuma-ui/core'
 import Container from '@/app/_components/layouts/container'
 import HasBreadcrumbLayout from '@/app/_components/layouts/has-breadcrumb-layout'
-import ProductSnsShare from '@/app/_components/sns-share'
-// import Tabs from '@/app/_components/tabs';
+// import ProductSnsShare from '@/app/_components/sns-share'
+import SnsShareButtons from '@/app/_components/sns-share-buttons'
 import TabsContents from '@/app/_components/tab-contents'
 import ProductCta from '@/app/products/_components/product-cta'
 import ProductInfo from '@/app/products/_components/product-info'
@@ -20,7 +18,7 @@ type PageProps = {
 }
 
 export default async function Page({ params }: PageProps) {
-  const currentUrl = headers().get('referer')
+  // const currentUrl = headers().get('referer')
 
   const product: ProductContentsType[] = await fetchProduct(
     params.productId,
@@ -109,45 +107,106 @@ export default async function Page({ params }: PageProps) {
       parentTag="article"
       bgColor="#f8f8f8"
     >
-      <div
-        className={css`
-          order: 1;
-        `}
-      >
+      <Container>
         <div
           className={css`
-            background-color: #fff;
+            @media (min-width: 577px) {
+              display: flex;
+              justify-content: space-between;
+            }
           `}
         >
-          <ProductSlider images={images} />
+          <div
+            className={css`
+              flex: 1;
+              max-width: 50rem;
 
-          <Container>
+              @media (max-width: 576px) {
+                max-width: inherit;
+                margin: 0 -2rem;
+              }
+            `}
+          >
+            <ProductSlider images={images} />
+          </div>
+
+          <div
+            className={css`
+              width: 40rem;
+              margin-left: 4rem;
+
+              @media (max-width: 1020px) {
+                width: calc(400 / 1020 * 100vw);
+                margin-left: calc(40 / 1020 * 100vw);
+              }
+
+              @media (max-width: 576px) {
+                width: initial;
+                margin-left: 0;
+              }
+            `}
+          >
             <div
               className={css`
-                padding: 2.5rem 0 3rem;
+                @media (max-width: 576px) {
+                  padding: 2.5rem 0;
+                }
               `}
             >
               <ProductInfo product={product} />
-
-              <Box mt="2.5rem">
-                <ProductCta product={product} />
-              </Box>
             </div>
-          </Container>
-        </div>
 
-        <TabsContents datas={tabsData} />
+            <div
+              className={css`
+                margin: 3rem 0 0;
 
-        <Container>
-          <div
-            className={css`
-              padding: 5rem 0 6.3rem;
-            `}
-          >
-            <ProductSnsShare shareTitle={product.name} shareUrl={currentUrl} />
+                @media (max-width: 576px) {
+                  margin: 0 0 3rem;
+                }
+              `}
+            >
+              <ProductCta product={product} />
+            </div>
+
+            <div
+              className={css`
+                margin: 3rem 0 0;
+
+                @media (max-width: 576px) {
+                  margin: 0 -2rem;
+                }
+              `}
+            >
+              <TabsContents datas={tabsData} />
+            </div>
+
+            <div
+              className={css`
+                margin: 3rem 0 0;
+
+                @media (max-width: 576px) {
+                  margin: 5rem 0 6.3rem;
+                }
+              `}
+            >
+              <SnsShareButtons />
+
+              {/* <div
+                className={css`
+                  @media (min-width: 577px) {
+                    display: none;
+                  }
+                `}
+              >
+                <ProductSnsShare
+                  shareTitle={product.name}
+                  shareUrl={currentUrl}
+                />
+              </div> */}
+            </div>
           </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </HasBreadcrumbLayout>
   )
 }

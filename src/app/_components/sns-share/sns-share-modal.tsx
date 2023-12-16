@@ -85,6 +85,8 @@ export default function SnsShareModal({
             className={css`
               position: relative;
               width: 100%;
+              max-width: 42rem;
+              margin: 0 auto;
               padding: 2rem 1.5rem 1.6rem;
               background: #ffffff;
               border-radius: 1rem;

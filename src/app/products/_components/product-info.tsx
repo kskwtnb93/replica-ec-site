@@ -20,6 +20,11 @@ export default function ProductInfo({ product }: Props) {
           line-height: 1.35714;
           font-weight: bold;
           color: #23abdd;
+
+          @media (max-width: 576px) {
+            font-size: 1.3rem;
+            line-height: 1.76923;
+          }
         `}
       >
         {product.brand_name}
@@ -28,10 +33,15 @@ export default function ProductInfo({ product }: Props) {
       {/** 商品名 */}
       <h1
         className={css`
-          font-size: 1.4rem;
+          font-size: 1.8rem;
           line-height: 1.6;
           font-weight: bold;
           margin-top: 1rem;
+
+          @media (max-width: 576px) {
+            margin-top: 1.5rem;
+            font-size: 1.4rem;
+          }
         `}
       >
         {product.name}
@@ -44,14 +54,22 @@ export default function ProductInfo({ product }: Props) {
           line-height: 1;
           font-weight: bold;
           margin-top: 2rem;
+
+          @media (max-width: 576px) {
+            margin-top: 2.5rem;
+          }
         `}
       >
         ¥{formattedPrice}
         <span
           className={css`
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1;
             margin-left: 0.5rem;
+
+            @media (max-width: 576px) {
+              font-size: 1rem;
+            }
           `}
         >
           税込

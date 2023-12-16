@@ -34,7 +34,7 @@ export default function TabsContents({ datas }: Props) {
           gap: 0.5rem;
           border-bottom: 0.1rem solid rgba(45, 45, 45, 0.07);
 
-          @media screen and (max-width: 979px) {
+          @media screen and (max-width: 576px) {
             gap: 0;
             border-top: 0.1rem solid rgba(45, 45, 45, 0.07);
           }

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { css } from '@kuma-ui/core'
-import SnsShareButton from '@/app/_components/buttons/sns-share-button'
+import SnsShareButton from '@/app/_components/sns-share/sns-share-button'
 import SnsShareModal from '@/app/_components/sns-share/sns-share-modal'
 
 type Props = {
