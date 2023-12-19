@@ -4,7 +4,7 @@ export async function fetchCampaigns(
   cache?: 'force-cache' | 'no-store' | { next: { revalidate: number } }
 ): Promise<CampaignType[]> {
   try {
-    const endPoint = `${process.env.PUBLIC_NEXT_URL}/api/campaigns`
+    const endPoint = `${process.env.PUBLIC_NEXT_URL}/api/campaigns/`
 
     const options = typeof cache === 'object' ? { ...cache } : { cache }
 
