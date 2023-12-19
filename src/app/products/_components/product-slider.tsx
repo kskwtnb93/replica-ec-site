@@ -7,7 +7,9 @@ import 'swiper/css/pagination'
 import { useRef, useState } from 'react'
 import { css } from '@kuma-ui/core'
 import Image from 'next/image'
+// @ts-expect-error Swiper v10以上で　TS5の互換性に対応しているらしいですが、どうしても　Swiper v8　が使いたいため
 import { A11y } from 'swiper'
+// @ts-expect-error Swiper v10以上で　TS5の互換性に対応しているらしいですが、どうしても　Swiper v8　が使いたいため
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import NavigationButton from '@/app/_components/buttons/slider-navigation-button'

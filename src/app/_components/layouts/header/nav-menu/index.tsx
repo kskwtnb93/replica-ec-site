@@ -1,16 +1,15 @@
-import { MouseEvent } from 'react'
 import { css } from '@kuma-ui/core'
 import { useSelector } from 'react-redux'
 
 import CloseButton from '@/app/_components/layouts/header/nav-menu/close-button'
 import Heading from '@/app/_components/layouts/header/nav-menu/heading'
 import ListItem from '@/app/_components/layouts/header/nav-menu/list-item'
-import Overlay from '@/app/_components/overlay.tsx'
+import Overlay from '@/app/_components/overlay'
 import { selectGender } from '@/redux/slices/gender'
 
 type Props = {
   isOpen: boolean
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void
+  onClick: () => void
 }
 
 export default function NavMenu({ isOpen, onClick }: Props) {
@@ -84,7 +83,6 @@ export default function NavMenu({ isOpen, onClick }: Props) {
                     key={child.id}
                     text={child.text}
                     href={child.href}
-                    currentGender={gender}
                     onClick={onClick}
                   />
                 ))}

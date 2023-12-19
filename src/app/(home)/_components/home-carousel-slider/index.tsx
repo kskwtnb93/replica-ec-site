@@ -8,7 +8,9 @@ import { useRef } from 'react'
 import { css } from '@kuma-ui/core'
 import Image from 'next/image'
 import Link from 'next/link'
+// @ts-expect-error Swiper v10以上で　TS5の互換性に対応しているらしいですが、どうしても　Swiper v8　が使いたいため
 import { A11y, Autoplay, Navigation, Pagination } from 'swiper'
+// @ts-expect-error Swiper v10以上で　TS5の互換性に対応しているらしいですが、どうしても　Swiper v8　が使いたいため
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import NavigationButton from '@/app/(home)/_components/home-carousel-slider/navigation-button'

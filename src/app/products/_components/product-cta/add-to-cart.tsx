@@ -9,7 +9,7 @@ import { addToCart } from '@/redux/slices/cart'
 import type { ProductContentsType } from '@/types/product'
 
 type Props = {
-  product: ProductContentsType[]
+  product: ProductContentsType
 }
 
 export default function AddToCart({ product }: Props) {

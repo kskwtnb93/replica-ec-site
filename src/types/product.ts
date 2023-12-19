@@ -7,7 +7,7 @@ export interface ProductsType {
 
 // カートに入っている時にはこの型を使う
 export interface ProductContentsWithQuantityType extends ProductContentsType {
-  quantity?: number
+  quantity: number
 }
 
 export interface ProductContentsType {

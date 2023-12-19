@@ -2,12 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import type { RootState } from '@/redux/store'
 
-import type { ProductContentsWithQuantityType } from '@/types/product'
+import type {
+  ProductContentsWithQuantityType,
+  ProductContentsType,
+} from '@/types/product'
 
 type CartState = {
   cartItems: ProductContentsWithQuantityType[]
   cartTotalQuantity: number
-  cartTotalQuantity: number
+  cartTotalPrice: number
 }
 
 const initialState: CartState = {
@@ -20,10 +23,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (
-      state,
-      action: PayloadAction<ProductContentsWithQuantityType>
-    ) => {
+    addToCart: (state, action: PayloadAction<ProductContentsType>) => {
       // カートの中に同じidの商品があるかチェック
       // サイズや色など商品の属性を細分化する必要があれば都度処理を追加する必要あり
       const duplicateId = state.cartItems.find(

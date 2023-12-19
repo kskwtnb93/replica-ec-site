@@ -35,7 +35,6 @@ export default function ProductSnsShareSp({ shareUrl, shareTitle }: Props) {
       <SnsShareModal
         shareUrl={shareUrl}
         shareTitle={shareTitle}
-        handleModalOpen={handleModalOpen}
         handleModalClose={handleModalClose}
         isOpen={isOpen}
       />

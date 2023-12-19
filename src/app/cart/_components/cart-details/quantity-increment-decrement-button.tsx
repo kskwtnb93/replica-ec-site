@@ -58,11 +58,11 @@ export default function QuantityIncrementDecrementButton({
 }: Props) {
   const dispatch = useDispatch()
 
-  const handleDecrement = (id) => {
+  const handleDecrement = (id: string) => {
     dispatch(decrementQuantity(id))
   }
 
-  const handleIncrement = (id) => {
+  const handleIncrement = (id: string) => {
     dispatch(incrementQuantity(id))
   }
 

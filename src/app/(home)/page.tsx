@@ -12,7 +12,11 @@ import {
 } from '@/utils/category'
 
 import type { CampaignType } from '@/types'
-import type { FirstCategoryType } from '@/types/category'
+import type {
+  FirstCategoryType,
+  SecondCategoryType,
+  ThirdCategoryType,
+} from '@/types/category'
 
 export default async function Page() {
   const firstCategories: FirstCategoryType[] =
@@ -75,7 +79,6 @@ export default async function Page() {
               }
               sidebar={
                 <HomeSidebar
-                  firstCategories={firstCategories}
                   secondCategories={secondCategories}
                   thirdCategories={thirdCategories}
                 />

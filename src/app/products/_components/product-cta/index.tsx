@@ -4,7 +4,7 @@ import AddToCart from '@/app/products/_components/product-cta/add-to-cart'
 import type { ProductContentsType } from '@/types/product'
 
 type Props = {
-  product: ProductContentsType[]
+  product: ProductContentsType
 }
 
 export default function ProductCta({ product }: Props) {

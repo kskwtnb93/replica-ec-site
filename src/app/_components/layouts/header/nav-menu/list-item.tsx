@@ -6,7 +6,7 @@ import { IconArrowRight } from '@/app/_components/icons'
 type Props = {
   text: string
   href?: string
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void
+  onClick: () => void
 }
 
 export default function ListItem({ text, href, onClick }: Props) {

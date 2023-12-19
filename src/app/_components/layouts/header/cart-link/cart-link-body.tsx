@@ -8,7 +8,7 @@ import { IconCart } from '@/app/_components/icons'
 import { selectCartTotalQuantity } from '@/redux/slices/cart'
 
 export default function CartLinkBody() {
-  const { cartTotalQuantity }: number = useSelector(selectCartTotalQuantity)
+  const { cartTotalQuantity } = useSelector(selectCartTotalQuantity)
 
   return (
     <Link
@@ -46,7 +46,7 @@ export default function CartLinkBody() {
           transform-origin: 50% 50%;
         `}
       >
-        {cartTotalQuantity}
+        {String(cartTotalQuantity)}
       </span>
       <IconCart width="2.8rem" height="2.8rem" color="#2d2d2d" />
     </Link>

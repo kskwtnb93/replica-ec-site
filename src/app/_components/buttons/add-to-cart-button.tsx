@@ -4,7 +4,7 @@ import { css } from '@kuma-ui/core'
 import { IconCart } from '@/app/_components/icons'
 
 type Props = {
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void
+  onClick: () => void
 }
 
 export default function AddCartButton({ onClick }: Props) {

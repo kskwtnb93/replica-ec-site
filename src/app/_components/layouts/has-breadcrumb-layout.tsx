@@ -7,8 +7,8 @@ import type { BreadcrumbType } from '@/types'
 type Props = {
   children: React.ReactNode
   breadcrumbData: BreadcrumbType[]
-  parentTag?: string
-  bgColor?: string
+  parentTag?: React.ElementType | undefined
+  bgColor?: string | undefined
 }
 
 export default async function HasBreadcrumbLayout({

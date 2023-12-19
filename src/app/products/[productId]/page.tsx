@@ -9,6 +9,7 @@ import ProductInfo from '@/app/products/_components/product-info'
 import ProductSlider from '@/app/products/_components/product-slider'
 import { fetchProduct } from '@/utils/product'
 
+import type { BreadcrumbType } from '@/types'
 import type { ProductContentsType, ImageType } from '@/types/product'
 
 type PageProps = {
@@ -20,7 +21,7 @@ type PageProps = {
 export default async function Page({ params }: PageProps) {
   // const currentUrl = headers().get('referer')
 
-  const product: ProductContentsType[] = await fetchProduct(
+  const product: ProductContentsType = await fetchProduct(
     params.productId,
     'no-store'
   )

@@ -19,7 +19,7 @@ export default function CartItem({
   main_image,
   price,
   quantity,
-}): ProductContentsWithQuantityType {
+}: ProductContentsWithQuantityType) {
   const image: ImageType = main_image
   const imageWidth = 85 * 2
 

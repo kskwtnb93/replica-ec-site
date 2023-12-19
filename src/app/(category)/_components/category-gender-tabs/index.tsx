@@ -18,7 +18,7 @@ export default function GenderTabs({ categories, active }: Props) {
       `}
     >
       {categories.map((category) => (
-        <Tab key={category.id} {...category} active={active} />
+        <Tab key={category.id} category={category} active={active} />
       ))}
     </ul>
   )

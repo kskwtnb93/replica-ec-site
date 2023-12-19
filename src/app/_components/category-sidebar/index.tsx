@@ -16,7 +16,7 @@ type Props = {
   params: {
     firstCategoryId: string
     secondCategoryId: string
-    thirdCategoryId?: string
+    thirdCategoryId?: string | undefined
   }
 }
 

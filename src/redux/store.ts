@@ -1,14 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import {
-  FLUSH,
-  PAUSE,
-  PERSIST,
-  persistReducer,
-  persistStore,
-  PURGE,
-  REGISTER,
-  REHYDRATE,
-} from 'redux-persist'
+import { persistReducer, persistStore } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 import { WebStorage } from 'redux-persist/lib/types'
 
@@ -63,9 +54,7 @@ export const store = configureStore({
    */
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
     }),
 })
 

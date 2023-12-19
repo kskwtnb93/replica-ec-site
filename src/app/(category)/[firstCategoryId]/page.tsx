@@ -5,7 +5,7 @@ import FirstCategoryListAccordion from '@/app/(category)/_components/first-categ
 import FirstCategoryListItem from '@/app/(category)/_components/first-category-list-item'
 import Heading from '@/app/(category)/_components/heading'
 import GenderTabs from '@/app/_components/gender-tabs'
-import { IconArrowDown } from '@/app/_components/icons/index.tsx'
+import { IconArrowDown } from '@/app/_components/icons/index'
 import Container from '@/app/_components/layouts/container'
 import HasBreadcrumbLayout from '@/app/_components/layouts/has-breadcrumb-layout'
 import {

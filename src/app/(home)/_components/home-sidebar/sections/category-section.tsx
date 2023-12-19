@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import CategoryListItem from '@/app/(home)/_components/home-sidebar/sections/parts/category-list-item'
 import Heading from '@/app/(home)/_components/home-sidebar/sections/parts/heading'
 import { IconArrowDown, IconArrowRight } from '@/app/_components/icons'
-import SpOnlyAccordion from '@/app/_components/sp-only-accordion.tsx'
+import SpOnlyAccordion from '@/app/_components/sp-only-accordion'
 import { selectGender } from '@/redux/slices/gender'
 
 import type { SecondCategoryType, ThirdCategoryType } from '@/types/category'

@@ -4,7 +4,7 @@ import { TAX_RATE } from '@/utils/constants'
 import type { ProductContentsType } from '@/types/product'
 
 type Props = {
-  product: ProductContentsType[]
+  product: ProductContentsType
 }
 
 export default function ProductInfo({ product }: Props) {

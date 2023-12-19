@@ -1,7 +1,7 @@
 import { css } from '@kuma-ui/core'
 import Link from 'next/link'
 
-import { IconArrowRight } from '@/app/_components/icons/index.tsx'
+import { IconArrowRight } from '@/app/_components/icons/index'
 
 import type { SecondCategoryType, ThirdCategoryType } from '@/types/category'
 

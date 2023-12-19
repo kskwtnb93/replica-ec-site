@@ -1,10 +1,8 @@
-import { MouseEvent } from 'react'
-
 import { css } from '@kuma-ui/core'
 import { IconMenu } from '@/app/_components/icons'
 
 type Props = {
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void
+  onClick: () => void
 }
 
 export default function CloseButton({ onClick }: Props) {

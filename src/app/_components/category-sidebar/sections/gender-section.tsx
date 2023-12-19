@@ -8,7 +8,7 @@ type Props = {
   params: {
     firstCategoryId: string
     secondCategoryId: string
-    thirdCategoryId?: string
+    thirdCategoryId?: string | undefined
   }
   borderTop: boolean
 }
@@ -22,9 +22,9 @@ export default function GenderSection({
     (category) => category.id !== 'all'
   )
 
-  const currentFirstCategory: string = params.firstCategoryId
-  const currentSecondCategory: string = params.secondCategoryId
-  const currentThirdCategory: string = params.thirdCategoryId
+  const currentFirstCategory = params.firstCategoryId
+  const currentSecondCategory = params.secondCategoryId
+  const currentThirdCategory = params.thirdCategoryId
     ? params.thirdCategoryId
     : null
 

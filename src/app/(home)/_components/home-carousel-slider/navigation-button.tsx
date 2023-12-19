@@ -3,7 +3,7 @@ import { IconArrowRight } from '@/app/_components/icons'
 
 type Props = {
   kind: 'prev' | 'next'
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void
+  onClick: () => void
 }
 
 export default function NavigationButton({ kind, onClick }: Props) {

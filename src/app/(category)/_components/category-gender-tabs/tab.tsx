@@ -3,16 +3,21 @@ import Link from 'next/link'
 
 import type { FirstCategoryType } from '@/types/category'
 
-export default function GenderTab({ id, ja_name, active }: FirstCategoryType) {
+type Props = {
+  category: FirstCategoryType
+  active: string
+}
+
+export default function GenderTab({ category, active }: Props) {
   return (
     <li
       className={css`
         text-align: center;
       `}
     >
-      {id === active ? (
+      {category.id === active ? (
         <Link
-          href={`/${id}/`}
+          href={`/${category.id}/`}
           className={css`
             display: flex;
             justify-content: center;
@@ -30,11 +35,11 @@ export default function GenderTab({ id, ja_name, active }: FirstCategoryType) {
             opacity: 1;
           `}
         >
-          {ja_name}
+          {category.ja_name}
         </Link>
       ) : (
         <Link
-          href={`/${id}/`}
+          href={`/${category.id}/`}
           className={css`
             display: flex;
             justify-content: center;
@@ -49,7 +54,7 @@ export default function GenderTab({ id, ja_name, active }: FirstCategoryType) {
             opacity: 1;
           `}
         >
-          {ja_name}
+          {category.ja_name}
         </Link>
       )}
     </li>

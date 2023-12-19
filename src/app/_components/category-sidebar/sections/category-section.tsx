@@ -9,7 +9,7 @@ type Props = {
   params: {
     firstCategoryId: string
     secondCategoryId: string
-    thirdCategoryId?: string
+    thirdCategoryId?: string | undefined
   }
   borderTop: boolean
 }
@@ -20,9 +20,9 @@ export default function GenderSection({
   params,
   borderTop,
 }: Props) {
-  const currentFirstCategory: string = params.firstCategoryId
-  const currentSecondCategory: string = params.secondCategoryId
-  const currentThirdCategory: string = params.thirdCategoryId
+  const currentFirstCategory = params.firstCategoryId
+  const currentSecondCategory = params.secondCategoryId
+  const currentThirdCategory = params.thirdCategoryId
   const secondCategory = secondCategories.filter((category) => {
     return category.id === currentSecondCategory
   })
@@ -50,7 +50,6 @@ export default function GenderSection({
             href={`/${currentFirstCategory}/${category.id}/`}
             selected={true}
             closeHandlerArg={`/search/?gender=${currentFirstCategory}`}
-            childCategories={thirdCategories}
             isChild={false}
           >
             <ul

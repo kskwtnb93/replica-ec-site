@@ -10,7 +10,7 @@ import {
   XIcon,
 } from 'react-share'
 
-import Overlay from '@/app/_components/overlay.tsx'
+import Overlay from '@/app/_components/overlay'
 import CloseIconButton from '@/app/_components/sns-share/close-icon-button'
 import CloseTextButton from '@/app/_components/sns-share/close-text-button'
 
