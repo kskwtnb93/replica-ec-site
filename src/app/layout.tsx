@@ -3,6 +3,8 @@ import './globals.scss'
 
 import { css } from '@kuma-ui/core'
 import { KumaRegistry } from '@kuma-ui/next-plugin/registry'
+import Footer from '@/app/_components/layouts/footer'
+import Header from '@/app/_components/layouts/header'
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
@@ -34,6 +36,7 @@ export default async function RootLayout({
             overflow-x: hidden;
           `}
         >
+          <Header />
           <main
             className={css`
               display: flex;
@@ -43,6 +46,7 @@ export default async function RootLayout({
           >
             {children}
           </main>
+          <Footer />
         </body>
       </KumaRegistry>
     </html>
