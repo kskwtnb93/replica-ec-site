@@ -3,7 +3,7 @@
 import { css } from '@kuma-ui/core'
 import { useSelector } from 'react-redux'
 
-import CartItem from '@/app/cart/_components/cart-details/cart-item'
+import CartDetailsItem from '@/app/cart/_components/cart-details/cart-details-item'
 import {
   selectCartItems,
   selectCartTotalPrice,
@@ -49,7 +49,7 @@ export default function CartDetailsBody() {
         `}
       >
         {cartItems.map((item) => (
-          <CartItem key={item.id} {...item} />
+          <CartDetailsItem key={item.id} {...item} />
         ))}
       </div>
 
@@ -72,7 +72,7 @@ export default function CartDetailsBody() {
             @media (min-width: 769px) {
               width: 12rem;
               text-align: right;
-              font-size: 1.5rem;
+              font-size: 1.6rem;
             }
 
             @media (max-width: 768px) {
@@ -89,7 +89,7 @@ export default function CartDetailsBody() {
             @media (min-width: 769px) {
               flex: 1;
               text-align: right;
-              font-size: 1.5rem;
+              font-size: 1.6rem;
             }
 
             @media (max-width: 768px) {

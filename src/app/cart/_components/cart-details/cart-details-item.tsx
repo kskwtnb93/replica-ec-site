@@ -2,6 +2,7 @@
 
 import { css } from '@kuma-ui/core'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import DeleteButton from '@/app/cart/_components/cart-details/delete-button'
 import QuantityIncrementDecrementButton from '@/app/cart/_components/cart-details/quantity-increment-decrement-button'
@@ -12,7 +13,7 @@ import type {
   ImageType,
 } from '@/types/product'
 
-export default function CartItem({
+export default function CartDetailsItem({
   id,
   brand_name,
   name,
@@ -51,27 +52,43 @@ export default function CartItem({
     >
       <p
         className={css`
-          width: 100%;
-          max-width: 12.5rem;
-          aspect-ratio: 12.5 / 15;
+          // width: 100%;
+          // max-width: 12.5rem;
+          // aspect-ratio: 12.5 / 15;
+          // overflow: hidden;
 
-          @media (max-width: 576px) {
-            max-width: 8.5rem;
-          }
+          // @media (max-width: 576px) {
+          //   max-width: 8.5rem;
+          // }
         `}
       >
-        <Image
+        <Link
+          href={`/products/${id}`}
           className={css`
+            display: block;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 12.5rem;
+            aspect-ratio: 12.5 / 15;
+            overflow: hidden;
+
+            @media (max-width: 576px) {
+              max-width: 8.5rem;
+            }
           `}
-          src={image.url}
-          width={imageWidth}
-          height={calcImageHeight(image.height, image.width, imageWidth)}
-          alt={''}
-          priority={true}
-        />
+        >
+          <Image
+            className={css`
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            `}
+            src={image.url}
+            width={imageWidth}
+            height={calcImageHeight(image.height, image.width, imageWidth)}
+            alt={''}
+            priority={true}
+          />
+        </Link>
       </p>
 
       <div
