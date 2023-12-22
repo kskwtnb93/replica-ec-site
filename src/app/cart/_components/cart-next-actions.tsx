@@ -12,10 +12,10 @@ type DialogType = {
 }
 
 export default function CartNextActions() {
-  const dialogRef: React.MutableRefObject<DialogType | null> = useRef(null)
+  const dialogRef = useRef<DialogType>(null)
 
   function openDialogHandler() {
-    dialogRef.current.showModal()
+    dialogRef.current?.showModal()
   }
 
   return (

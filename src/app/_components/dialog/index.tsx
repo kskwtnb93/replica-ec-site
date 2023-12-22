@@ -15,24 +15,24 @@ type DialogType = {
 }
 
 export default React.forwardRef(function Dialog({ children }: Props, ref) {
-  const dialogRef: React.MutableRefObject<DialogType | null> = useRef(null)
+  const dialogRef = useRef<DialogType>(null)
 
   useImperativeHandle(ref, () => ({
     showModal: () => {
-      dialogRef.current.showModal()
+      dialogRef.current?.showModal()
     },
     close: () => {
-      dialogRef.current.close()
+      dialogRef.current?.close()
     },
   }))
 
   function closeDialogHandler() {
-    dialogRef.current.close()
+    dialogRef.current?.close()
   }
 
   return (
     <dialog
-      ref={dialogRef}
+      ref={dialogRef as unknown as React.RefObject<HTMLDialogElement>}
       onClick={closeDialogHandler}
       className={css`
         position: relative;
