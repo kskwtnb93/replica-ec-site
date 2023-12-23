@@ -57,13 +57,15 @@ export default function ListItem({
             isChild
               ? css`
                   display: block;
-                  padding: 0.7rem 1rem 0.6rem 2.7rem;
+                  padding: 0.7rem 3.5rem 0.6rem 2.7rem;
                   line-height: 1.4;
+                  word-break: auto-phrase;
                 `
               : css`
                   display: block;
-                  padding: 0.7rem 1rem 0.6rem 1.4rem;
+                  padding: 0.7rem 3.5rem 0.6rem 1.4rem;
                   line-height: 1.6;
+                  word-break: auto-phrase;
                 `
           }
         >
