@@ -1,6 +1,12 @@
+'use client'
+
 import { css } from '@kuma-ui/core'
+import { useRouter } from 'next/navigation'
+import { useDispatch } from 'react-redux'
+
 import Heading from '@/app/_components/category-sidebar/sections/parts/heading'
 import ListItem from '@/app/_components/category-sidebar/sections/parts/list-item'
+import { switchGender } from '@/redux/slices/gender'
 
 import type { FirstCategoryType } from '@/types/category'
 type Props = {
@@ -18,6 +24,9 @@ export default function GenderSection({
   params,
   borderTop,
 }: Props) {
+  const router = useRouter()
+  const dispatch = useDispatch()
+
   const filteredFirstCategories = firstCategories.filter(
     (category) => category.id !== 'all'
   )
@@ -52,10 +61,16 @@ export default function GenderSection({
         {filteredFirstCategories.map((category) => (
           <ListItem
             key={category.id}
+            onClick={() => {
+              dispatch(switchGender(category.id))
+            }}
             text={category.ja_name}
             href={`/${category.id}/${lastPath}`}
             selected={category.id === currentFirstCategory}
-            closeHandlerArg={`/all/${lastPath}`}
+            closeHandler={() => {
+              dispatch(switchGender('all'))
+              router.push(`/all/${lastPath}`)
+            }}
           />
         ))}
       </ul>

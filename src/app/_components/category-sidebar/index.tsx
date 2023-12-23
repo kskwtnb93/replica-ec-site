@@ -2,6 +2,7 @@ import { css } from '@kuma-ui/core'
 import CategorySection from '@/app/_components/category-sidebar/sections/category-section'
 import CountSection from '@/app/_components/category-sidebar/sections/count-section'
 import GenderSection from '@/app/_components/category-sidebar/sections/gender-section'
+import ReduxProvider from '@/app/_components/redux-provider'
 
 import type {
   FirstCategoryType,
@@ -36,11 +37,13 @@ export default function CategorySidebar({
     >
       <CountSection productCount={productCount} />
 
-      <GenderSection
-        firstCategories={firstCategories}
-        params={params}
-        borderTop={false}
-      />
+      <ReduxProvider>
+        <GenderSection
+          firstCategories={firstCategories}
+          params={params}
+          borderTop={false}
+        />
+      </ReduxProvider>
 
       <CategorySection
         secondCategories={secondCategories}

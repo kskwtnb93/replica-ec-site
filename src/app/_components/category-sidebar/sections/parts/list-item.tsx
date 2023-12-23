@@ -4,19 +4,21 @@ import Link from 'next/link'
 import CloseButton from '@/app/_components/category-sidebar/sections/parts/close-button'
 
 type Props = {
+  onClick?: () => void
   text: string
   href: string
   selected: boolean
-  closeHandlerArg: string
+  closeHandler: () => void
   isChild?: boolean
   children?: React.ReactNode
 }
 
 export default function ListItem({
+  onClick,
   text,
   href,
   selected,
-  closeHandlerArg,
+  closeHandler,
   isChild,
   children,
 }: Props) {
@@ -28,52 +30,60 @@ export default function ListItem({
         }
       `}
     >
-      <Link
-        href={href}
-        className={
-          selected
-            ? css`
-                display: block;
-                position: relative;
-                font-size: 1.3rem;
-                color: #2d2d2d;
-                background-color: rgba(0, 0, 0, 0.05);
-                pointer-events: none;
-              `
-            : css`
-                display: block;
-                position: relative;
-                font-size: 1.3rem;
-                color: #2d2d2d;
-
-                &:hover {
-                  background-color: rgba(0, 0, 0, 0.05);
-                }
-              `
-        }
+      <div
+        className={css`
+          position: relative;
+        `}
       >
-        <span
-          className={
-            isChild
-              ? css`
-                  display: block;
-                  padding: 0.7rem 3.5rem 0.6rem 2.7rem;
-                  line-height: 1.4;
-                  word-break: auto-phrase;
-                `
-              : css`
-                  display: block;
-                  padding: 0.7rem 3.5rem 0.6rem 1.4rem;
-                  line-height: 1.6;
-                  word-break: auto-phrase;
-                `
-          }
-        >
-          {text}
-        </span>
+        <p onClick={onClick && onClick}>
+          <Link
+            href={href}
+            className={
+              selected
+                ? css`
+                    display: block;
+                    position: relative;
+                    font-size: 1.3rem;
+                    color: #2d2d2d;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    pointer-events: none;
+                  `
+                : css`
+                    display: block;
+                    position: relative;
+                    font-size: 1.3rem;
+                    color: #2d2d2d;
+
+                    &:hover {
+                      background-color: rgba(0, 0, 0, 0.05);
+                    }
+                  `
+            }
+          >
+            <span
+              className={
+                isChild
+                  ? css`
+                      display: block;
+                      padding: 0.7rem 3.5rem 0.6rem 2.7rem;
+                      line-height: 1.4;
+                      word-break: auto-phrase;
+                    `
+                  : css`
+                      display: block;
+                      padding: 0.7rem 3.5rem 0.6rem 1.4rem;
+                      line-height: 1.6;
+                      word-break: auto-phrase;
+                    `
+              }
+            >
+              {text}
+            </span>
+          </Link>
+        </p>
 
         {selected && (
-          <span
+          <div
             className={css`
               display: block;
               position: absolute;
@@ -82,10 +92,10 @@ export default function ListItem({
               pointer-events: auto;
             `}
           >
-            <CloseButton closeHandlerArg={closeHandlerArg} />
-          </span>
+            <CloseButton closeHandler={closeHandler} />
+          </div>
         )}
-      </Link>
+      </div>
 
       {children && children}
     </li>

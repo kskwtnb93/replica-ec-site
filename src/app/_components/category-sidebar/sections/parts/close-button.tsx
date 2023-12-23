@@ -1,23 +1,16 @@
 'use client'
 
 import { css } from '@kuma-ui/core'
-import { useRouter } from 'next/navigation'
-
 import { IconClose } from '@/app/_components/icons'
 
 type Props = {
-  closeHandlerArg: string
+  closeHandler: () => void
 }
 
-export default function CloseButton({ closeHandlerArg }: Props) {
-  const router = useRouter()
-
+export default function CloseButton({ closeHandler }: Props) {
   return (
     <button
-      onClick={(e) => {
-        e.preventDefault()
-        router.push(closeHandlerArg)
-      }}
+      onClick={closeHandler}
       className={css`
         width: 2rem;
         height: 2rem;

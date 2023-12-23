@@ -1,4 +1,8 @@
+'use client'
+
 import { css } from '@kuma-ui/core'
+import { useRouter } from 'next/navigation'
+
 import Heading from '@/app/_components/category-sidebar/sections/parts/heading'
 import ListItem from '@/app/_components/category-sidebar/sections/parts/list-item'
 
@@ -20,6 +24,8 @@ export default function GenderSection({
   params,
   borderTop,
 }: Props) {
+  const router = useRouter()
+
   const currentFirstCategory = params.firstCategoryId
   const currentSecondCategory = params.secondCategoryId
   const currentThirdCategory = params.thirdCategoryId
@@ -49,7 +55,12 @@ export default function GenderSection({
             text={category.name}
             href={`/${currentFirstCategory}/${category.id}/`}
             selected={true}
-            closeHandlerArg={`/search/?gender=${currentFirstCategory}`}
+            // closeHandler={() => {
+            //   router.push(`/search/?gender=${currentFirstCategory}`)
+            // }}
+            closeHandler={() => {
+              router.push(`/${currentFirstCategory}/`)
+            }}
             isChild={false}
           >
             <ul
@@ -63,7 +74,11 @@ export default function GenderSection({
                   text={category.name}
                   href={`/${currentFirstCategory}/${currentSecondCategory}/${category.id}/`}
                   selected={category.id === currentThirdCategory}
-                  closeHandlerArg={`/${currentFirstCategory}/${currentSecondCategory}/`}
+                  closeHandler={() => {
+                    router.push(
+                      `/${currentFirstCategory}/${currentSecondCategory}/`
+                    )
+                  }}
                   isChild={true}
                 />
               ))}
