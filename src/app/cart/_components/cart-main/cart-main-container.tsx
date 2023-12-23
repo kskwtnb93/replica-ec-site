@@ -4,15 +4,9 @@ import { css } from '@kuma-ui/core'
 import { useSelector } from 'react-redux'
 
 import CartDetails from '@/app/cart/_components/cart-details'
-import CartEmptyContents from '@/app/cart/_components/cart-empty-contents.tsx'
+import CartEmptyContents from '@/app/cart/_components/cart-empty-contents'
 import CartNextActions from '@/app/cart/_components/cart-next-actions'
 import { selectCart } from '@/redux/slices/cart'
-
-export interface CartStateType {
-  items: ProductContentsWithQuantityType[]
-  totalQuantity: number
-  totalPrice: number
-}
 
 export default function CartMainContainer() {
   const { cart } = useSelector(selectCart)
