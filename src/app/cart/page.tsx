@@ -1,9 +1,9 @@
 import { css } from '@kuma-ui/core'
 import Link from 'next/link'
 
+import Heading from '@/app/_components/heading'
 import Container from '@/app/_components/layouts/container'
-import CartDetails from '@/app/cart/_components/cart-details'
-import CartNextActions from '@/app/cart/_components/cart-next-actions'
+import CartMain from '@/app/cart/_components/cart-main'
 
 export default function Page() {
   return (
@@ -31,69 +31,21 @@ export default function Page() {
         `}
       >
         <Container>
-          <section
-            className={css`
-              @media (min-width: 769px) {
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-              }
-            `}
-          >
-            <h1
+          <section>
+            <div
               className={css`
-                font-size: 2.8rem;
-                font-weight: 600;
-                line-height: 1.6875;
-                margin-bottom: 3rem;
                 width: 100%;
+                margin-bottom: 3rem;
 
                 @media (max-width: 768px) {
-                  font-size: 1.8rem;
                   margin-bottom: 1.5rem;
                 }
               `}
             >
-              ショッピングカート
-            </h1>
-
-            <div
-              className={css`
-                @media (min-width: 769px) {
-                  width: calc(100% - 38rem);
-                }
-
-                @media (max-width: 1020px) {
-                  width: calc(100% - 380 / 1020 * 100vw);
-                }
-
-                @media (max-width: 768px) {
-                  width: inherit;
-                }
-              `}
-            >
-              <CartDetails />
+              <Heading as="h1" text="ショッピングカート" />
             </div>
 
-            <div
-              className={css`
-                @media (min-width: 769px) {
-                  width: 34rem;
-                }
-
-                @media (max-width: 1020px) {
-                  width: calc(340 / 1020 * 100vw);
-                }
-
-                @media (max-width: 768px) {
-                  width: inherit;
-                  padding: 1.5rem 0 3rem;
-                  margin-left: 0;
-                }
-              `}
-            >
-              <CartNextActions />
-            </div>
+            <CartMain />
           </section>
         </Container>
       </div>
