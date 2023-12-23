@@ -39,9 +39,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   gender: genderReducer,
-  cartItems: cartReducer,
-  cartTotalQuantity: cartReducer,
-  cartTotalPrice: cartReducer,
+  cart: cartReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

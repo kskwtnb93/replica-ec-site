@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 
 import { IconCart } from '@/app/_components/icons'
-import { selectCartTotalQuantity } from '@/redux/slices/cart'
+import { selectCart } from '@/redux/slices/cart'
 
-export default function CartLinkBody() {
-  const { cartTotalQuantity } = useSelector(selectCartTotalQuantity)
+export default function CartLinkContainer() {
+  const { cart } = useSelector(selectCart)
 
   return (
     <Link
@@ -18,7 +18,7 @@ export default function CartLinkBody() {
         position: relative;
       `}
     >
-      {cartTotalQuantity > 0 && (
+      {cart.totalQuantity > 0 && (
         <span
           className={css`
             position: absolute;
@@ -47,7 +47,7 @@ export default function CartLinkBody() {
             transform-origin: 50% 50%;
           `}
         >
-          {String(cartTotalQuantity)}
+          {String(cart.totalQuantity)}
         </span>
       )}
       <IconCart width="2.8rem" height="2.8rem" color="#2d2d2d" />
