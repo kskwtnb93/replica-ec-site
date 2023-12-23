@@ -37,8 +37,7 @@ export default async function Page() {
         <div
           className={css`
             position: relative;
-            padding-top: 2rem;
-            margin-bottom: -2rem;
+            padding: 2rem 0;
             z-index: 2;
           `}
         >

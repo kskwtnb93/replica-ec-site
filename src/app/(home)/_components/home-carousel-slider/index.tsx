@@ -82,7 +82,7 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
         }}
         className={css`
           position: relative;
-          padding: 4rem 0;
+          padding: 0 0 4rem;
           opacity: 0;
           transition: opacity 0.15s linear;
 
