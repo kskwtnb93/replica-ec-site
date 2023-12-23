@@ -1,8 +1,8 @@
 import { css } from '@kuma-ui/core'
 import { notFound } from 'next/navigation'
 
-import Heading from '@/app/(category)/_components/heading'
 import CategorySidebar from '@/app/_components/category-sidebar'
+import Heading from '@/app/_components/heading'
 import TwoColumn from '@/app/_components/layouts/columns/two-column'
 import Container from '@/app/_components/layouts/container'
 import HasBreadcrumbLayout from '@/app/_components/layouts/has-breadcrumb-layout'
