@@ -52,6 +52,17 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
       className={css`
         padding: 0 0 3rem;
 
+        .swiper {
+          position: relative;
+          padding: 0 0 4rem;
+          opacity: 0;
+          transition: opacity 0.15s linear;
+
+          &.swiper-initialized {
+            opacity: 1;
+          }
+        }
+
         .swiper-pagination-bullet-active {
           background-color: #2d2d2d;
         }
@@ -80,16 +91,6 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        className={css`
-          position: relative;
-          padding: 0 0 4rem;
-          opacity: 0;
-          transition: opacity 0.15s linear;
-
-          &.swiper-initialized {
-            opacity: 1;
-          }
-        `}
       >
         {campaigns.map((campaign) => (
           <SwiperSlide
