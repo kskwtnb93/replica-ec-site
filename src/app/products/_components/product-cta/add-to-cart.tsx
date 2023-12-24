@@ -3,7 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 
-import AddCartButton from '@/app/_components/buttons/add-to-cart-button'
+import Button from '@/app/_components/buttons/button'
+import { IconCart } from '@/app/_components/icons'
 import { addToCart } from '@/redux/slices/cart'
 
 import type { ProductContentsType } from '@/types/product'
@@ -21,5 +22,11 @@ export default function AddToCart({ product }: Props) {
     router.push('/cart/')
   }
 
-  return <AddCartButton onClick={addToCartHandler} />
+  return (
+    <Button
+      text="レジへ進む"
+      icon={<IconCart width="2.2rem" height="2.2rem" color="#ffffff" />}
+      onClick={addToCartHandler}
+    />
+  )
 }

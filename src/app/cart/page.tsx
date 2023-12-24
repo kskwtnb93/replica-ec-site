@@ -1,6 +1,5 @@
 import { css } from '@kuma-ui/core'
-import Link from 'next/link'
-
+import Button from '@/app/_components/buttons/button'
 import Heading from '@/app/_components/heading'
 import Container from '@/app/_components/layouts/container'
 import CartMain from '@/app/cart/_components/cart-main'
@@ -70,30 +69,12 @@ export default function Page() {
               padding: 2.5rem 0;
             `}
           >
-            <Link
-              href="/"
-              className={css`
-                width: 100%;
-                align-items: center;
-                appearance: none;
-                cursor: pointer;
-                display: inline-flex;
-                font-size: 1.5rem;
-                font-weight: bold;
-                justify-content: center;
-                line-height: 1;
-                margin: 0;
-                outline: 0;
-                padding: 0.5rem;
-                border-radius: 0.8rem;
-                min-height: 5rem;
-                // background-color: #23abdd;
-                color: #23abdd;
-                border: 0.1rem solid #23abdd;
-              `}
-            >
-              ショッピングを続ける
-            </Link>
+            <Button
+              asButton={false}
+              text="ショッピングを続ける"
+              variant="secondary"
+              href={'/'}
+            />
           </div>
         </Container>
       </div>

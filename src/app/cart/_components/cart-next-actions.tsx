@@ -4,6 +4,7 @@ import React, { useRef } from 'react'
 import { css } from '@kuma-ui/core'
 import Link from 'next/link'
 
+import Button from '@/app/_components/buttons/button'
 import Dialog from '@/app/_components/dialog'
 
 type DialogType = {
@@ -29,29 +30,7 @@ export default function CartNextActions() {
           }
         `}
       >
-        <button
-          onClick={openDialogHandler}
-          className={css`
-            width: 100%;
-            align-items: center;
-            appearance: none;
-            cursor: pointer;
-            display: inline-flex;
-            font-size: 1.5rem;
-            font-weight: bold;
-            justify-content: center;
-            line-height: 1;
-            margin: 0;
-            outline: 0;
-            padding: 0.5rem;
-            border-radius: 0.8rem;
-            min-height: 5rem;
-            background-color: #23abdd;
-            color: #fff;
-          `}
-        >
-          レジへ進む
-        </button>
+        <Button text="レジへ進む" onClick={openDialogHandler} />
 
         <Link
           href="/"
