@@ -3,6 +3,7 @@ import './globals.scss'
 
 import { css } from '@kuma-ui/core'
 import { KumaRegistry } from '@kuma-ui/next-plugin/registry'
+import { Analytics } from '@vercel/analytics/react'
 import Footer from '@/app/_components/layouts/footer'
 import Header from '@/app/_components/layouts/header'
 
@@ -51,6 +52,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <Analytics />
         </body>
       </KumaRegistry>
     </html>
