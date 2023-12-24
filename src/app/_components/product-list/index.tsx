@@ -32,14 +32,26 @@ export default function ProductList({ products }: Props) {
       ))}
     </ul>
   ) : (
-    <p
+    <div
       className={css`
-        font-size: 1.5rem;
-        color: #ed293e;
-        line-height: 1.6;
+        @media (max-width: 576px) {
+          padding: 0 2rem;
+        }
       `}
     >
-      条件に一致する商品は見つかりませんでした。
-    </p>
+      <p
+        className={css`
+          font-size: 1.5rem;
+          color: #ed293e;
+          line-height: 1.6;
+
+          @media (max-width: 576px) {
+            text-align: center;
+          }
+        `}
+      >
+        条件に一致する商品は見つかりませんでした。
+      </p>
+    </div>
   )
 }

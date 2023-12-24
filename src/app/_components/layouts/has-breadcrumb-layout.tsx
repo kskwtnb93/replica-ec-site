@@ -64,6 +64,7 @@ export default async function HasBreadcrumbLayout({
             order: 1;
 
             @media (max-width: 576px) {
+              flex: 1;
               background-color: #fff;
             }
           `}
