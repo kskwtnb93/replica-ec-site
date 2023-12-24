@@ -87,7 +87,7 @@ export default React.forwardRef(function Dialog({ children }: Props, ref) {
           justify-content: center;
           width: 100%;
           min-height: 16rem;
-          padding: 2rem 1.5rem;
+          padding: 4rem 2.5rem;
           transition: all 0.2s ease-in-out;
           animation: hidden 0.2s linear 0s;
         `}

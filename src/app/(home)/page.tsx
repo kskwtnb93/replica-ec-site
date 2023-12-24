@@ -1,4 +1,5 @@
 import { css } from '@kuma-ui/core'
+import HomeBanner from '@/app/(home)/_components/home-banner'
 import HomeCarouselSlider from '@/app/(home)/_components/home-carousel-slider'
 import HomeSidebar from '@/app/(home)/_components/home-sidebar'
 import GenderTabs from '@/app/_components/gender-tabs'
@@ -39,6 +40,10 @@ export default async function Page() {
             position: relative;
             padding: 2rem 0;
             z-index: 2;
+
+            @media (max-width: 576px) {
+              padding: 1.5rem 0;
+            }
           `}
         >
           <GenderTabs categories={firstCategories} isLink={false} />
@@ -58,7 +63,7 @@ export default async function Page() {
               padding: 4rem 0 6rem;
 
               @media (max-width: 576px) {
-                padding: 4rem 0 0;
+                padding: 2rem 0 0;
               }
             `}
           >
@@ -72,15 +77,23 @@ export default async function Page() {
                       }
                     `}
                   >
-                    main
+                    <HomeBanner />
                   </div>
                 </>
               }
               sidebar={
-                <HomeSidebar
-                  secondCategories={secondCategories}
-                  thirdCategories={thirdCategories}
-                />
+                <div
+                  className={css`
+                    @media (max-width: 576px) {
+                      padding-top: 5rem;
+                    }
+                  `}
+                >
+                  <HomeSidebar
+                    secondCategories={secondCategories}
+                    thirdCategories={thirdCategories}
+                  />
+                </div>
               }
             />
           </div>

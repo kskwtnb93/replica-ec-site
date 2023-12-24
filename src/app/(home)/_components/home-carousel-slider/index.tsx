@@ -73,6 +73,10 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
         .swiper-pagination-bullets.swiper-pagination-horizontal {
           bottom: 0.2rem;
         }
+
+        @media (max-width: 576px) {
+          padding: 0 0 2rem;
+        }
       `}
     >
       <Swiper
