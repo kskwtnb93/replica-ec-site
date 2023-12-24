@@ -174,7 +174,7 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
         <div
           className={css`
             position: absolute;
-            top: 50%;
+            top: calc(50% - 4rem / 2);
             left: 2rem;
             z-index: 2;
             margin-top: -2rem;
@@ -186,7 +186,7 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
         <div
           className={css`
             position: absolute;
-            top: 50%;
+            top: calc(50% - 4rem / 2);
             right: 2rem;
             z-index: 2;
             margin-top: -2rem;
