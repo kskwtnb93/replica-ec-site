@@ -78,7 +78,7 @@ export default function CartNextActions() {
             font-size: 1.4rem;
           `}
         >
-          当サイトでお買い物はできません。
+          ※当サイトはデモンストレーションのため、実際の商品の購入や決済は行われません。
         </p>
       </Dialog>
     </>
