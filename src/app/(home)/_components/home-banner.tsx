@@ -5,7 +5,7 @@ export default function HomeBanner() {
     <div
       className={css`
         border-radius: 0.6rem;
-        background-color: red;
+        background-color: #f26868;
         padding: 1.4rem 2rem;
       `}
     >
