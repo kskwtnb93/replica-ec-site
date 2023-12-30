@@ -13,6 +13,7 @@ import { A11y } from 'swiper'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import NavigationButton from '@/app/_components/buttons/slider-navigation-button'
+import SkeletonScreen from '@/app/_components/skeleton-screen'
 
 import type { ImageType } from '@/types/product'
 
@@ -87,6 +88,7 @@ export default function ProductSlider({ images }: Props) {
           <SwiperSlide
             key={index}
             className={css`
+              position: relative;
               width: 100%;
               aspect-ratio: 375 / 450;
               overflow: hidden;
@@ -94,9 +96,11 @@ export default function ProductSlider({ images }: Props) {
           >
             <Image
               className={css`
+                position: relative;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                z-index: 1;
               `}
               src={image.url}
               width={imageWidth}
@@ -104,6 +108,8 @@ export default function ProductSlider({ images }: Props) {
               alt={''}
               priority={true}
             />
+
+            <SkeletonScreen />
           </SwiperSlide>
         ))}
 

@@ -2,6 +2,7 @@ import { css } from '@kuma-ui/core'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import SkeletonScreen from '@/app/_components/skeleton-screen'
 import { TAX_RATE } from '@/utils/constants'
 
 import type { ProductContentsType } from '@/types/product'
@@ -29,7 +30,9 @@ export default function Card({ product, imagePriority }: Props) {
         <Link
           href={`/products/${id}`}
           className={css`
+            position: relative;
             display: block;
+            width: 100%;
             aspect-ratio: 228 / 274;
             transition: all ease-in 0.15s;
             overflow: hidden;
@@ -41,9 +44,11 @@ export default function Card({ product, imagePriority }: Props) {
         >
           <Image
             className={css`
+              position: relative;
               width: 100%;
               height: 100%;
               object-fit: cover;
+              z-index: 1;
             `}
             src={main_image.url}
             // width={main_image.width}
@@ -53,12 +58,16 @@ export default function Card({ product, imagePriority }: Props) {
             alt={description}
             priority={imagePriority}
           />
+
+          <SkeletonScreen />
         </Link>
       </p>
 
       <div
         className={css`
-          padding: 0 1rem 2rem;
+          @media (max-width: 576px) {
+            padding: 0 1rem 2rem;
+          }
         `}
       >
         <p

@@ -14,6 +14,7 @@ import { A11y, Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import NavigationButton from '@/app/(home)/_components/home-carousel-slider/navigation-button'
+import SkeletonScreen from '@/app/_components/skeleton-screen'
 
 import type { CampaignType } from '@/types'
 
@@ -113,7 +114,6 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
                   position: relative;
                   aspect-ratio: 35 / 23;
                   box-shadow: 0.4rem 0.6rem 1.6rem rgba(0, 0, 0, 15%);
-                  background-color: rgba(45, 45, 45, 7%);
                 `}
               >
                 <div
@@ -123,6 +123,7 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
                     left: 0;
                     right: 0;
                     padding: 2.5rem;
+                    z-index: 2;
                   `}
                 >
                   <h2
@@ -157,9 +158,11 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
 
                 <Image
                   className={css`
+                    position: relative;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    z-index: 1;
                   `}
                   src={campaign.image.url}
                   width={imageWidth}
@@ -171,6 +174,8 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
                   alt={campaign.title}
                   priority={true}
                 />
+
+                <SkeletonScreen />
               </div>
             </Link>
           </SwiperSlide>

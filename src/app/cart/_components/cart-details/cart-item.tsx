@@ -4,6 +4,7 @@ import { css } from '@kuma-ui/core'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import SkeletonScreen from '@/app/_components/skeleton-screen'
 import DeleteButton from '@/app/cart/_components/cart-details/delete-button'
 import QuantityIncrementDecrementButton from '@/app/cart/_components/cart-details/quantity-increment-decrement-button'
 import { TAX_RATE } from '@/utils/constants'
@@ -52,14 +53,15 @@ export default function CartDetailsItem({
     >
       <p
         className={css`
-          // width: 100%;
-          // max-width: 12.5rem;
-          // aspect-ratio: 12.5 / 15;
-          // overflow: hidden;
+          position: relative;
+          width: 100%;
+          max-width: 12.5rem;
+          aspect-ratio: 12.5 / 15;
+          overflow: hidden;
 
-          // @media (max-width: 576px) {
-          //   max-width: 8.5rem;
-          // }
+          @media (max-width: 576px) {
+            max-width: 8.5rem;
+          }
         `}
       >
         <Link
@@ -78,9 +80,11 @@ export default function CartDetailsItem({
         >
           <Image
             className={css`
+              position: relative;
               width: 100%;
               height: 100%;
               object-fit: cover;
+              z-index: 1;
             `}
             src={image.url}
             width={imageWidth}
@@ -88,6 +92,8 @@ export default function CartDetailsItem({
             alt={''}
             priority={true}
           />
+
+          <SkeletonScreen />
         </Link>
       </p>
 
