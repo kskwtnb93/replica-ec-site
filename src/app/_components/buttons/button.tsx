@@ -38,6 +38,12 @@ export default function Button({
     min-height: 5rem;
     background-color: #23abdd;
     color: #fff;
+    opacity: 1;
+    transition: opacity 0.15s;
+
+    &:hover {
+      opacity: 0.8;
+    }
   `
   const secondaryStyle = css`
     width: 100%;
@@ -56,6 +62,12 @@ export default function Button({
     min-height: 5rem;
     color: #23abdd;
     border: 0.1rem solid #23abdd;
+    opacity: 1;
+    transition: opacity 0.15s;
+
+    &:hover {
+      opacity: 0.8;
+    }
   `
 
   let Style
