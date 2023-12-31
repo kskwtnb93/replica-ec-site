@@ -1,5 +1,5 @@
 import { css } from '@kuma-ui/core'
-import Link from 'next/link'
+import Button from '@/app/_components/buttons/button'
 
 export default function CartEmptyContents() {
   return (
@@ -23,35 +23,9 @@ export default function CartEmptyContents() {
           @media (max-width: 768px) {
             display: none;
           }
-
-          // @media (max-width: 576px) {
-          //   width: 100%;
-          // }
         `}
       >
-        <Link
-          href={'/'}
-          className={css`
-            width: 100%;
-            align-items: center;
-            appearance: none;
-            cursor: pointer;
-            display: inline-flex;
-            font-size: 1.5rem;
-            font-weight: bold;
-            justify-content: center;
-            line-height: 1;
-            margin: 0;
-            outline: 0;
-            padding: 0.5rem;
-            border-radius: 0.8rem;
-            min-height: 5rem;
-            background-color: #23abdd;
-            color: #fff;
-          `}
-        >
-          ショッピングを続ける
-        </Link>
+        <Button asButton={false} text="ショッピングを続ける" href={'/'} />
       </p>
     </div>
   )
