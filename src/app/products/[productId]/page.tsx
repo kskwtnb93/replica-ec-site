@@ -114,6 +114,7 @@ export default async function Page({ params }: PageProps) {
             @media (min-width: 577px) {
               display: flex;
               justify-content: space-between;
+              padding: 0 0 9rem;
             }
           `}
         >

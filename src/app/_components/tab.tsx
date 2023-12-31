@@ -61,6 +61,11 @@ export const StyledButton = styled.button`
   text-align: center;
   color: #a0a0a0;
   background-color: #f8f8f8;
+  cursor: pointer;
+
+  &:hover {
+    color: #2d2d2d;
+  }
 
   @media screen and (max-width: 576px) {
     flex: 1;
@@ -86,6 +91,7 @@ export const StyledActiveButton = styled(StyledButton)`
   border: 0.1rem solid rgba(45, 45, 45, 0.07);
   border-bottom: none;
   background-color: #fff;
+  cursor: auto;
 
   @media screen and (max-width: 576px) {
     min-height: 5.2rem;
