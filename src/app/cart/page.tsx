@@ -70,7 +70,7 @@ export default function Page() {
             `}
           >
             <Button
-              asButton={false}
+              isButton={false}
               text="ショッピングを続ける"
               variant="secondary"
               href={'/'}

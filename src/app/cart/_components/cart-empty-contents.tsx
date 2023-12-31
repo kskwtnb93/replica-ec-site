@@ -25,7 +25,7 @@ export default function CartEmptyContents() {
           }
         `}
       >
-        <Button asButton={false} text="ショッピングを続ける" href={'/'} />
+        <Button isButton={false} text="ショッピングを続ける" href={'/'} />
       </p>
     </div>
   )

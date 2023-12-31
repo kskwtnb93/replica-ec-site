@@ -2,7 +2,7 @@ import { css } from '@kuma-ui/core'
 import Link from 'next/link'
 
 type Props = {
-  asButton?: boolean | null
+  isButton?: boolean | null
   text: string
   variant?: 'primary' | 'secondary' | null
   // <IconCart width="2.2rem" height="2.2rem" color="#ffffff" />のような値を想定
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function Button({
-  asButton = true,
+  isButton = true,
   text,
   variant = 'primary',
   icon,
@@ -75,7 +75,7 @@ export default function Button({
     Style = secondaryStyle
   }
 
-  return asButton ? (
+  return isButton ? (
     <button
       type="button"
       onClick={onClick ? onClick : undefined}
