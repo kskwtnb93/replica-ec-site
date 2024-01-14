@@ -14,7 +14,7 @@ import { A11y, Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import NavigationButton from '@/app/(home)/_components/home-carousel-slider/navigation-button'
-import SkeletonScreen from '@/app/_components/skeleton-screen'
+import { calcImageHeight, imagePlaceholder } from '@/utils/image'
 
 import type { CampaignType } from '@/types'
 
@@ -30,15 +30,6 @@ interface Props {
 export default function HomeCarouselSlider({ campaigns }: Props) {
   const swiperRef = useRef<SwiperClass | null>(null)
   const imageWidth = 450 * 2
-
-  // 画像幅を556pxにしたときのアスペクト比を維持した画像の高さを求める
-  function calcImageHeight(
-    orgImageHeight: number,
-    orgImageWidth: number,
-    imageWidth: number
-  ): number {
-    return (orgImageHeight / orgImageWidth) * imageWidth
-  }
 
   function handleSlidePrev() {
     ;(swiperRef.current as SwiperType)?.slidePrev()
@@ -173,9 +164,15 @@ export default function HomeCarouselSlider({ campaigns }: Props) {
                   )}
                   alt={campaign.title}
                   priority={true}
+                  placeholder={imagePlaceholder(
+                    imageWidth,
+                    calcImageHeight(
+                      campaign.image.height,
+                      campaign.image.width,
+                      imageWidth
+                    )
+                  )}
                 />
-
-                <SkeletonScreen />
               </div>
             </Link>
           </SwiperSlide>

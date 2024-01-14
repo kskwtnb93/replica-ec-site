@@ -2,8 +2,8 @@ import { css } from '@kuma-ui/core'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import SkeletonScreen from '@/app/_components/skeleton-screen'
 import { TAX_RATE } from '@/utils/constants'
+import { calcImageHeight, imagePlaceholder } from '@/utils/image'
 
 import type { ProductContentsType } from '@/types/product'
 
@@ -15,8 +15,6 @@ type Props = {
 export default function Card({ product, imagePriority }: Props) {
   const { id, main_image, description, brand_name, price } = product
   const imageWidth = 228 * 2
-  // 画像幅を556pxにしたときのアスペクト比を維持した画像の高さを求める
-  const imageHeight = (main_image.height / main_image.width) * imageWidth
   const taxIncludedPrice = price + price * TAX_RATE
   const formattedPrice = taxIncludedPrice.toLocaleString()
 
@@ -51,15 +49,19 @@ export default function Card({ product, imagePriority }: Props) {
               z-index: 1;
             `}
             src={main_image.url}
-            // width={main_image.width}
-            // height={main_image.height}
             width={imageWidth}
-            height={imageHeight}
+            height={calcImageHeight(
+              main_image.height,
+              main_image.width,
+              imageWidth
+            )}
             alt={description}
             priority={imagePriority}
+            placeholder={imagePlaceholder(
+              imageWidth,
+              calcImageHeight(main_image.height, main_image.width, imageWidth)
+            )}
           />
-
-          <SkeletonScreen />
         </Link>
       </p>
 

@@ -4,10 +4,10 @@ import { css } from '@kuma-ui/core'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import SkeletonScreen from '@/app/_components/skeleton-screen'
 import DeleteButton from '@/app/cart/_components/cart-details/delete-button'
 import QuantityIncrementDecrementButton from '@/app/cart/_components/cart-details/quantity-increment-decrement-button'
 import { TAX_RATE } from '@/utils/constants'
+import { calcImageHeight, imagePlaceholder } from '@/utils/image'
 
 import type {
   ProductContentsWithQuantityType,
@@ -27,15 +27,6 @@ export default function CartDetailsItem({
 
   const taxIncludedPrice = price + price * TAX_RATE
   const formattedPrice: string = (taxIncludedPrice as number).toLocaleString()
-
-  // 画像幅を556pxにしたときのアスペクト比を維持した画像の高さを求める
-  function calcImageHeight(
-    orgImageHeight: number,
-    orgImageWidth: number,
-    imageWidth: number
-  ): number {
-    return (orgImageHeight / orgImageWidth) * imageWidth
-  }
 
   return (
     <div
@@ -91,9 +82,11 @@ export default function CartDetailsItem({
             height={calcImageHeight(image.height, image.width, imageWidth)}
             alt={''}
             priority={true}
+            placeholder={imagePlaceholder(
+              imageWidth,
+              calcImageHeight(image.height, image.width, imageWidth)
+            )}
           />
-
-          <SkeletonScreen />
         </Link>
       </p>
 

@@ -13,7 +13,7 @@ import { A11y } from 'swiper'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import NavigationButton from '@/app/_components/buttons/slider-navigation-button'
-import SkeletonScreen from '@/app/_components/skeleton-screen'
+import { calcImageHeight, imagePlaceholder } from '@/utils/image'
 
 import type { ImageType } from '@/types/product'
 
@@ -30,15 +30,6 @@ export default function ProductSlider({ images }: Props) {
   const swiperRef = useRef<SwiperClass | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const imageWidth = 450 * 2
-
-  // 画像幅を556pxにしたときのアスペクト比を維持した画像の高さを求める
-  function calcImageHeight(
-    orgImageHeight: number,
-    orgImageWidth: number,
-    imageWidth: number
-  ): number {
-    return (orgImageHeight / orgImageWidth) * imageWidth
-  }
 
   function handleSlidePrev() {
     ;(swiperRef.current as SwiperType)?.slidePrev()
@@ -107,9 +98,11 @@ export default function ProductSlider({ images }: Props) {
               height={calcImageHeight(image.height, image.width, imageWidth)}
               alt={''}
               priority={true}
+              placeholder={imagePlaceholder(
+                imageWidth,
+                calcImageHeight(image.height, image.width, imageWidth)
+              )}
             />
-
-            <SkeletonScreen />
           </SwiperSlide>
         ))}
 
