@@ -5,6 +5,11 @@ import TwoColumn from '@/app/_components/layouts/columns/two-column'
 import ProductList from '@/app/_components/product-list'
 import { fetchProducts } from '@/utils/product'
 
+import type {
+  FirstCategoryType,
+  SecondCategoryType,
+  ThirdCategoryType,
+} from '@/types/category'
 import type { ProductContentsType } from '@/types/product'
 
 type Props = {
@@ -32,7 +37,11 @@ export default async function CategoryContents({
 }: Props) {
   const products: ProductContentsType[] = await fetchProducts()
   const filteredProducts = products.filter((product) => {
-    if (typeof product.firstCategory !== 'undefined') {
+    if (
+      (typeof product.firstCategory !== 'undefined' &&
+        filterCategoryHierarchy === 'secondCategory') ||
+      filterCategoryHierarchy === 'thirdCategory'
+    ) {
       // all 以外のカテゴリーは性別カテゴリー filter する条件を追加
       if (params.firstCategoryId === 'all') {
         return product[filterCategoryHierarchy] === filterCategoryId
