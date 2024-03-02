@@ -32,6 +32,7 @@ export default function GenderSection({ productCount }: Props) {
       <h2
         className={css`
           font-size: 1.3rem;
+          padding-bottom: 0.5rem;
         `}
       >
         <span
@@ -50,7 +51,7 @@ export default function GenderSection({ productCount }: Props) {
             font-size: 2.9rem;
             font-weight: bold;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            min-height: calc(2.9rem * 1.1);
           `}
         >
           <Countup end={productCount} duration={3} />
