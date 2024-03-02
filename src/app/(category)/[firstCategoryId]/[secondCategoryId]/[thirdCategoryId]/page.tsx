@@ -1,19 +1,16 @@
+import React, { Suspense } from 'react'
 import { css } from '@kuma-ui/core'
 import { notFound } from 'next/navigation'
 
-import CategorySidebar from '@/app/_components/category-sidebar'
-import Heading from '@/app/_components/heading'
-import TwoColumn from '@/app/_components/layouts/columns/two-column'
+import CategoryContents from '@/app/(category)/_components/category-contents'
 import Container from '@/app/_components/layouts/container'
 import HasBreadcrumbLayout from '@/app/_components/layouts/has-breadcrumb-layout'
-import ProductList from '@/app/_components/product-list'
 import {
   fetchFirstCategories,
   fetchSecondCategories,
   fetchThirdCategories,
   getCategory,
 } from '@/utils/category'
-import { fetchProducts } from '@/utils/product'
 
 import type { BreadcrumbType } from '@/types'
 import type {
@@ -22,7 +19,6 @@ import type {
   ThirdCategoryType,
 } from '@/types/category'
 
-import type { ProductContentsType } from '@/types/product'
 type PageProps = {
   params: {
     firstCategoryId: string
@@ -58,22 +54,10 @@ export default async function Page({ params }: PageProps) {
 
   if (!thirdCategory) return notFound()
 
-  const products: ProductContentsType[] = await fetchProducts()
-  const filteredProducts = products.filter((product) => {
-    if (typeof product.firstCategory !== 'undefined') {
-      // all 以外のカテゴリーは性別カテゴリー filter する条件を追加
-      if (params.firstCategoryId === 'all') {
-        return product.thirdCategory === params.thirdCategoryId
-      } else {
-        return (
-          // product.firstCategory のみ microCMS の都合で配列で返ってくるため [0] で取り出してます
-          product.firstCategory[0] === params.firstCategoryId &&
-          product.thirdCategory === params.thirdCategoryId
-        )
-      }
-    }
-    return false // 未定義の場合はフィルタリングしない
-  })
+  const headingText =
+    firstCategory.id !== 'all'
+      ? `${thirdCategory.name}（${firstCategory.ja_name}）`
+      : `${thirdCategory.name}`
 
   // パンくずコンポーネント用Propsを作成
   const lastBreadcrumbText =
@@ -116,63 +100,17 @@ export default async function Page({ params }: PageProps) {
             }
           `}
         >
-          <TwoColumn
-            main={
-              <div
-                className={css`
-                  @media (max-width: 576px) {
-                    background-color: #fff;
-                  }
-                `}
-              >
-                <div
-                  className={css`
-                    margin-bottom: 3rem;
-
-                    @media (max-width: 576px) {
-                      margin-bottom: 3rem;
-                    }
-                  `}
-                >
-                  <Heading
-                    as="h1"
-                    text={
-                      firstCategory.id !== 'all'
-                        ? `${thirdCategory.name}（${firstCategory.ja_name}）`
-                        : `${thirdCategory.name}`
-                    }
-                  />
-                </div>
-
-                <div
-                  className={css`
-                    @media (max-width: 576px) {
-                      margin: 0 -2rem;
-                    }
-                  `}
-                >
-                  <ProductList products={filteredProducts} />
-                </div>
-              </div>
-            }
-            sidebar={
-              <div
-                className={css`
-                  @media (max-width: 576px) {
-                    display: none;
-                  }
-                `}
-              >
-                <CategorySidebar
-                  productCount={filteredProducts.length}
-                  firstCategories={firstCategories}
-                  secondCategories={secondCategories}
-                  thirdCategories={thirdCategories}
-                  params={params}
-                />
-              </div>
-            }
-          />
+          <Suspense>
+            <CategoryContents
+              HeadingText={headingText}
+              filterCategoryHierarchy="thirdCategory"
+              filterCategoryId={params.thirdCategoryId}
+              params={params}
+              firstCategories={firstCategories}
+              secondCategories={secondCategories}
+              thirdCategories={thirdCategories}
+            />
+          </Suspense>
         </div>
       </Container>
     </HasBreadcrumbLayout>
