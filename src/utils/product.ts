@@ -1,25 +1,27 @@
 import type { ProductContentsType, ProductsType } from '@/types/product'
 
+/**
+ * @param cache - 詳細は Next.js のドキュメントを確認 → https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#caching-data
+ * @param etc - その他は MicroCMS クエリパラメータを参照　　→ https://document.microcms.io/content-api/get-list-contents
+ */
 export async function fetchProducts(
   limit: number = 100,
   offset: number = 0,
   fields: string[] | never[] = [],
+  filters: string = '',
   cache:
     | 'force-cache'
     | 'no-store'
     | { next: { revalidate: number } } = 'no-store'
 ): Promise<ProductContentsType[]> {
   try {
-    const fieldsText = fields.length ? fields.join(',') : ''
     let endPoint =
       process.env.PRODUCTS_API_URL + `products?limit=${limit}&offset=${offset}`
-    if (fieldsText) {
-      endPoint =
-        process.env.PRODUCTS_API_URL +
-        `products?fields=` +
-        fieldsText +
-        `&limit=${limit}&offset=${offset}`
-    }
+
+    // limit と offset 以外に指定があれば、クエリパラメータを endPoint に連結していく
+    const fieldsText = fields.length ? fields.join(',') : ''
+    if (fieldsText) endPoint += `&fields=${fieldsText}`
+    if (filters) endPoint += `&filters=${filters}`
 
     const options: {
       headers?: Headers

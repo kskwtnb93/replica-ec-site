@@ -35,26 +35,24 @@ export default async function CategoryContents({
   secondCategories,
   thirdCategories,
 }: Props) {
-  const products: ProductContentsType[] = await fetchProducts()
-  const filteredProducts = products.filter((product) => {
-    if (
-      (typeof product.firstCategory !== 'undefined' &&
-        filterCategoryHierarchy === 'secondCategory') ||
-      filterCategoryHierarchy === 'thirdCategory'
-    ) {
-      // all 以外のカテゴリーは性別カテゴリー filter する条件を追加
-      if (params.firstCategoryId === 'all') {
-        return product[filterCategoryHierarchy] === filterCategoryId
-      } else {
-        return (
-          // product.firstCategory のみ microCMS の都合で配列で返ってくるため [0] で取り出してます
-          product.firstCategory[0] === params.firstCategoryId &&
-          product[filterCategoryHierarchy] === filterCategoryId
-        )
-      }
-    }
-    return false // 未定義の場合はフィルタリングしない
-  })
+  const fields = ['id', 'main_image', 'description', 'brand_name', 'price']
+  let filters = ''
+  const filters1 = `${filterCategoryHierarchy}[equals]${filterCategoryId}`
+
+  if (params.firstCategoryId === 'all') {
+    filters = `${filters1}`
+  } else {
+    // params.firstCategoryId が 'all' 以外の場合は、firstCategory でもフィルタリングする
+    const filters2 = `(firstCategory[contains]all[or]firstCategory[contains]${params.firstCategoryId})`
+    filters = `${filters1}[and]${filters2}`
+  }
+
+  const filteredProducts: ProductContentsType[] = await fetchProducts(
+    100,
+    0,
+    fields,
+    filters
+  )
 
   return (
     <TwoColumn
