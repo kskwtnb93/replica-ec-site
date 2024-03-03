@@ -59,13 +59,17 @@ export async function fetchProducts(
 
 export async function fetchProduct(
   productId: string,
-  cache?: 'force-cache' | 'no-store' | { next: { revalidate: number } }
+  cache:
+    | 'force-cache'
+    | 'no-store'
+    | { next: { revalidate: number } } = 'no-store'
 ): Promise<ProductContentsType> {
   try {
     const endPoint = process.env.PRODUCTS_API_URL + `products/${productId}`
     const options: {
       headers?: Headers
-      cache?: 'force-cache' | 'no-store' | undefined
+      cache?: 'force-cache' | 'no-store'
+      next?: { revalidate: number }
     } = {}
 
     const headers = new Headers()
@@ -73,7 +77,7 @@ export async function fetchProduct(
     options.headers = headers
 
     if (typeof cache === 'object') {
-      options.cache = undefined
+      if (cache.next) options.next = cache.next
     } else {
       options.cache = cache
     }
