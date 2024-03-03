@@ -3,37 +3,58 @@ import type { ProductContentsType, ProductsType } from '@/types/product'
 export async function fetchProducts(
   limit: number = 100,
   offset: number = 0,
-  fields: string[] | never[] = []
+  fields: string[] | never[] = [],
+  cache:
+    | 'force-cache'
+    | 'no-store'
+    | { next: { revalidate: number } } = 'no-store'
 ): Promise<ProductContentsType[]> {
-  const fieldsText = fields.length ? fields.join(',') : ''
-  let endPoint =
-    process.env.PRODUCTS_API_URL + `products?limit=${limit}&offset=${offset}`
+  try {
+    const fieldsText = fields.length ? fields.join(',') : ''
+    let endPoint =
+      process.env.PRODUCTS_API_URL + `products?limit=${limit}&offset=${offset}`
+    if (fieldsText) {
+      endPoint =
+        process.env.PRODUCTS_API_URL +
+        `products?fields=` +
+        fieldsText +
+        `&limit=${limit}&offset=${offset}`
+    }
 
-  if (fieldsText) {
-    endPoint =
-      process.env.PRODUCTS_API_URL +
-      `products?fields=` +
-      fieldsText +
-      `&limit=${limit}&offset=${offset}`
-  }
+    const options: {
+      headers?: Headers
+      cache?: 'force-cache' | 'no-store'
+      next?: { revalidate: number }
+    } = {}
 
-  const headers = new Headers()
-  headers.append('X-MICROCMS-API-KEY', process.env.PRODUCTS_API_KEY || '')
+    const headers = new Headers()
+    headers.append('X-MICROCMS-API-KEY', process.env.PRODUCTS_API_KEY || '')
+    options.headers = headers
 
-  const data: ProductsType = await fetch(endPoint, { headers }).then((res) =>
-    res.json()
-  )
+    if (typeof cache === 'object') {
+      if (cache.next) options.next = cache.next
+    } else {
+      options.cache = cache
+    }
 
-  if (data.offset + data.limit < data.totalCount) {
-    const contents = await fetchProducts(
-      data.limit,
-      data.offset + data.limit,
-      fields
+    const data: ProductsType = await fetch(endPoint, options).then((res) =>
+      res.json()
     )
-    return [...data.contents, ...contents]
-  }
 
-  return data.contents
+    if (data.offset + data.limit < data.totalCount) {
+      const contents = await fetchProducts(
+        data.limit,
+        data.offset + data.limit,
+        fields
+      )
+      return [...data.contents, ...contents]
+    }
+
+    return data.contents
+  } catch (error) {
+    console.error('Error during fetchProducts:', error)
+    throw error
+  }
 }
 
 export async function fetchProduct(
