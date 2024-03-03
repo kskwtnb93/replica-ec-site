@@ -29,18 +29,18 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const firstCategories: FirstCategoryType[] =
-    await fetchFirstCategories('no-store')
+    await fetchFirstCategories('force-cache')
   const firstCategory: FirstCategoryType | undefined = await getCategory(
     params.firstCategoryId,
     firstCategories
   )
   const secondCategories: SecondCategoryType[] =
-    await fetchSecondCategories('no-store')
+    await fetchSecondCategories('force-cache')
 
   if (!firstCategory) return notFound()
 
   const thirdCategories: ThirdCategoryType[] =
-    await fetchThirdCategoriesAll('no-store')
+    await fetchThirdCategoriesAll('force-cache')
 
   // パンくずコンポーネント用Propsを作成
   const headingText =

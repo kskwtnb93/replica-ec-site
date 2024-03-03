@@ -21,12 +21,12 @@ import type {
 
 export default async function Page() {
   const firstCategories: FirstCategoryType[] =
-    await fetchFirstCategories('no-store')
+    await fetchFirstCategories('force-cache')
   const secondCategories: SecondCategoryType[] =
-    await fetchSecondCategories('no-store')
+    await fetchSecondCategories('force-cache')
   const thirdCategories: ThirdCategoryType[] =
-    await fetchThirdCategoriesAll('no-store')
-  const campaigns: CampaignType[] = await fetchCampaigns('no-store')
+    await fetchThirdCategoriesAll('force-cache')
+  const campaigns: CampaignType[] = await fetchCampaigns('force-cache')
 
   return (
     <div

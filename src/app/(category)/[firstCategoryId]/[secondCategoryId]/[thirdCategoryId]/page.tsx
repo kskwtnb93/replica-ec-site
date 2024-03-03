@@ -29,13 +29,13 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const firstCategories: FirstCategoryType[] =
-    await fetchFirstCategories('no-store')
+    await fetchFirstCategories('force-cache')
   const firstCategory: FirstCategoryType | undefined = await getCategory(
     params.firstCategoryId,
     firstCategories
   )
   const secondCategories: SecondCategoryType[] =
-    await fetchSecondCategories('no-store')
+    await fetchSecondCategories('force-cache')
   const secondCategory: SecondCategoryType | undefined = await getCategory(
     params.secondCategoryId,
     secondCategories
@@ -45,7 +45,7 @@ export default async function Page({ params }: PageProps) {
 
   const thirdCategories: ThirdCategoryType[] = await fetchThirdCategories(
     params.secondCategoryId,
-    'no-store'
+    'force-cache'
   )
   const thirdCategory: ThirdCategoryType | undefined = await getCategory(
     params.thirdCategoryId,
